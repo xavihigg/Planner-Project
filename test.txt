@@ -1,0 +1,34 @@
+package it355.project2;
+
+class Test {
+  
+  /**
+   * https://cwe.mitre.org/data/definitions/582.html
+   * CWE-582: Array Declared Public, Final, and Static
+   * The following example shows a bad way to declare an array in Java as an array should 
+   * almost always be declared private because an array is a mutable object. Being non private
+   * runs the risk they can be accessed by a malicious program.
+   */
+  public static final String[] badArray = new String[3];
+
+  /**
+   * https://cwe.mitre.org/data/definitions/495.html
+   * CWE-495: Private Data Structure Returned From A Public Method
+   * The following code shows a public method that returns a reference to a private variable.
+   * This violates CWE-495 as that variable can be changed.
+   * To fix this violation either make the method private, clone the member data and keep an 
+   * unmodified version of the object or use public setters to govern how the variable can be modified.
+   */
+  private String[] privateArray = new String[3];
+  public String[] getPrivateArray() { return privateArray; }
+
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Test object = new Test();
+    String[] testing = object.getPrivateArray();
+    testing[0] = "hello";
+    System.out.println(object.getPrivateArray()[0]);
+  }
+}
