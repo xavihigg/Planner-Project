@@ -1,32 +1,43 @@
 import java.io.*;
 import java.util.*;
 
-public class EditEvent {
-	private String title;
-	private String desc;
-	private String time;
-	private String daily;
-	private String category;
+public class Category {
+	private String categoryName;
+	private String color;
 	
-	public EditEvent() {
-		this.getTitle();
-		this.getDesc();
-		this.getTime();
-		this.getDaily();
-		this.getCategory();
+	public Category() {
+		this.getCategoryName();
+		this.getColor();
 	}
 	
-	public EditEvent(String title, String desc, String time, String daily, String category) {
-		this.setTitle(title);
-		this.setDesc(desc);
-		this.setTime(time);
-		this.setDaily(daily);
-		this.setCategory(category);
+	public Category(String categoryName, String color) {
+		this.setCategoryName(categoryName);
+		this.setColor(color);
 	}
-
-	private void getEventList() {
+	
+	private void saveCategory(Category details) {
 		try {
-			File events = new File("eventList.txt");
+			File saveCat = new File("categoryList.txt");
+			if(!saveCat.exists()) {
+				saveCat.createNewFile();
+			}
+			
+			FileWriter fw = new FileWriter(saveCat.getName(), true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write("Category name: " +details.getCategoryName()
+					+", Color: " +details.getColor() +"\n");
+			bw.close();
+			
+			System.out.print("\nCategory created!");
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void getCategoryList() {
+		try {
+			File events = new File("categoryList.txt");
 			Scanner scan = new Scanner(events);
 			String[] data = new String[100];
 			int i = 0;
@@ -36,14 +47,13 @@ public class EditEvent {
 				i++;
 			}
 			scan.close();
-			
 		}
 		catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	private void fixInput(String input, EditEvent details) {
+	private void fixInput(String input) {
 		int fixed = 0;
 		if(input.equals("1")) {
 			fixed = 1;
@@ -247,59 +257,12 @@ public class EditEvent {
 			fixed = 100;
 		}
 		
-		editEvent(fixed, details);
+		deleteCategory(fixed);
 	}
 	
-	private void eventDetails(String numb) {
-		System.out.println("\nEditing event..");
-		
-		String input = "";
-		Scanner scan1 = new Scanner(System.in);
-		System.out.print("\nEvent title: ");
-		input = scan1.nextLine();
-		
-		String input2 = "";
-		Scanner scan2 = new Scanner(System.in);
-		System.out.print("\nDescription: ");
-		input2 = scan2.nextLine();
-		
-		String input3 = "";
-		Scanner scan3 = new Scanner(System.in);
-		System.out.print("\nDuration of event (integer for min): ");
-		while(!scan3.hasNextInt()) {
-			scan3.next();
-			System.out.print("\nDuration of event (integer for min): ");
-		}
-		input3 = scan3.next();
-		
-		String input4 = "";
-		Scanner scan4 = new Scanner(System.in);
-		System.out.print("\nIs this event a daily event? (Y/N): ");
-		while(scan4.hasNext()) {
-			input4 = scan4.next();
-			if(input4.equalsIgnoreCase("Y") || input4.equalsIgnoreCase("N"))
-				break;
-			System.out.print("\nIs this event a daily event? (Y/N): ");
-		}
-		
-		String input5 = "";
-		Scanner scan5 = new Scanner(System.in);
-		System.out.print("\nEvent category(optional): ");
-		input5 = scan5.nextLine();
-		
-		EditEvent details = new EditEvent(input, input2, input3, input4, input5);
-		
-		scan1.close();
-		scan2.close();
-		scan3.close();
-		scan4.close();
-		scan5.close();
-		fixInput(numb, details);
-	}
-	
-	private void editEvent(int input, EditEvent details) {
+	private void deleteCategory(int input) {
 		try {
-			String filename = "eventList.txt";
+			String filename = "categoryList.txt";
 			Scanner scan = new Scanner(new File(filename));
 			String[] data = new String[100];
 			int i = 0;
@@ -310,12 +273,7 @@ public class EditEvent {
 
 			scan.close();
 			
-			String newline = "Title: " +details.getTitle() 
-			+", Description: " +details.getDesc() 
-			+", Duration: " +details.getTime() +" min(s)"
-			+", Category: " +details.getCategory() +"\n";
-			
-			data[input] = newline;
+			data[input] = null;
 			FileWriter writer = new FileWriter(filename);
 			for(int j = 0; j < 100; j++) {
 				if(data[j]!= null) {
@@ -323,73 +281,79 @@ public class EditEvent {
 				}
 			}
 			writer.flush();
-			
-			System.out.print("\nEvent edited!");
+			System.out.print("\nEvent deleted!");
 			writer.close();
 		}
-		catch(IOException e) {
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public void main(String[] args) {
-		System.out.println("\nWhich event would you like to edit?(integer)");
-		getEventList();
-		System.out.print(">> ");
-		
 		Scanner scan = new Scanner(System.in);
-		String input = "";
-		while(!scan.hasNextInt()) {
-			scan.next();
-			System.out.println("\nWhich event would you like to edit?(integer)");
-			getEventList();
-			System.out.print(">> ");
+		System.out.print("\nWould you like to create or delete a category?(C/D): ");
+		String decision = "";
+		while(scan.hasNext()) {
+			decision = scan.next();
+			if(decision.equalsIgnoreCase("C") || decision.equalsIgnoreCase("D"))
+				break;
+			System.out.print("\nWould you like to create or delete a category?(C/D): ");
 		}
-		input = scan.next();
 		
-		EditEvent event = new EditEvent();
-		event.eventDetails(input);
+		if(decision.equalsIgnoreCase("C")) {
+			System.out.print("\nCreating a category.. \n");
+			
+			System.out.print("\nCategory name: ");
+			Scanner scan1 = new Scanner(System.in);
+			String input = "";
+			input = scan1.nextLine();
+			
+			System.out.print("\nCategory color: ");
+			Scanner scan2 = new Scanner(System.in);
+			String input2 = "";
+			input2 = scan2.nextLine();
+			
+			Category category = new Category(input, input2);
+			saveCategory(category);
+			
+			scan1.close();
+			scan2.close();
+		}
+		if(decision.equalsIgnoreCase("D")) {
+			System.out.println("\nWhich category would you like to delete?(integer)");
+			getCategoryList();
+			System.out.print(">> ");
+			
+			Scanner scan3 = new Scanner(System.in);
+			String input = "";
+			while(!scan3.hasNextInt()) {
+				scan3.next();
+				System.out.println("\nWhich category would you like to delete?(integer)");
+				getCategoryList();
+				System.out.print(">> ");
+			}
+			input = scan3.next();
+			scan3.close();
+			
+			fixInput(input);
+		}
 		
 		scan.close();
 	}
 
-	public String getTitle() {
-		return title;
+	public String getCategoryName() {
+		return categoryName;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getColor() {
+		return color;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-
-	public String getTime() {
-		return time;
-	}
-
-	public void setTime(String time) {
-		this.time = time;
-	}
-
-	public String getDaily() {
-		return daily;
-	}
-
-	public void setDaily(String daily) {
-		this.daily = daily;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
+	public void setColor(String color) {
+		this.color = color;
 	}
 }
