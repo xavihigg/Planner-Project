@@ -1,3 +1,5 @@
+package com.planner.Model;
+
 import java.io.*;
 import java.time.*;
 import java.util.Scanner;
@@ -120,7 +122,7 @@ public class Event {
 		System.out.print("\nEvent category(optional): ");
 		input5 = scan5.nextLine();
 		
-		CreateEvent description = new CreateEvent(input, input2, input3, input4, input5);
+		Event description = new Event(input, input2, input3, input4, input5);
 
 		scan.close();
 		scan2.close();
@@ -130,7 +132,7 @@ public class Event {
 		displayEvent(description, timeSelected);
 	}
 	
-	public void displayEvent(CreateEvent description, String timeSelected) {
+	public void displayEvent(Event description, String timeSelected) {
 		System.out.print("\nEvent Created!");
 		System.out.print("\n___________________________________________________");
 		System.out.print("\n|Title: " +description.getTitle());
@@ -142,7 +144,7 @@ public class Event {
 		saveEvent(description);
 	}
 	
-	private void saveEvent(CreateEvent description) {
+	private void saveEvent(Event description) {
 		try {
 			File saveEvent = new File("eventList.txt");
 			if(!saveEvent.exists())
@@ -565,7 +567,7 @@ public class Event {
 			
 			System.out.print("Creating event for " +timeSelected +": \n");
 			//create the event at the time slot
-			CreateEvent newEvent = new CreateEvent();
+			Event newEvent = new Event();
 			newEvent.createEvent(timeSelected);
 			
 			scan1.close();
@@ -655,5 +657,6 @@ public class Event {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 }
 

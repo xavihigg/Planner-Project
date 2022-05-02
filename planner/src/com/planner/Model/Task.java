@@ -1,3 +1,5 @@
+package com.planner.Model;
+
 import java.io.FilterInputStream;
 import java.util.*;
 

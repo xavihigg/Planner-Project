@@ -38,6 +38,7 @@ public class UserView {
         System.out.println(" 2     Create Task");
         System.out.println(" 3     Create Category");
         System.out.println(" 4     Get Weather ");
+        System.out.println(" 0     Exit Program");
         int userChoice = Integer.parseInt(scanner.nextLine());
 
         while (userChoice != 0) {
@@ -62,6 +63,7 @@ public class UserView {
             System.out.println(" 2     Create Task");
             System.out.println(" 3     Create Category");
             System.out.println(" 4     Get Weather ");
+            System.out.println(" 0     Exit Program");
             userChoice = Integer.parseInt(scanner.nextLine());
         }
     }
@@ -69,13 +71,38 @@ public class UserView {
     public static void exitProgram() {
         //save info here
     }
-
+    //////////////////// Xavier Use Cases ////////////////////////////////////////////
+    /**
+     * This function will return the current weather for a specified city
+     */
     public static void getWeather() {
         System.out.println("Please enter the name of the city");
         String userChoice = scanner.nextLine();
-        System.out.println("Please enter the State Code");
-        String input = scanner.nextLine();
+        String response = controller.getWeather(userChoice);
+        if (response.equals("HttpResponseCode: 404")) {
+            System.out.println("That city could not be found");
+        } else {
+            System.out.println("The weather in " + userChoice + " is " + response + "F");
+        }
+    }
+    public static void mergeEvent() {
+        System.out.println("Please enter the name of Event to merge");
+        String userChoice = scanner.nextLine();
+        System.out.println("Please enter the name of the Event to merge into");
+        String userChoice2 = scanner.nextLine();
 
-        String weather = controller.getWeather(userChoice, input);
+//        String output = controller.mergeEvent(userChoice, userChoice2);
+    }
+
+    public static void mergeTask() {
+
+    }
+
+    public static void sortTasks() {
+
+    }
+
+    public static void generateSchedule() {
+
     }
 }
