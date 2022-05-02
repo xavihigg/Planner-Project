@@ -91,11 +91,18 @@ public class UserView {
         System.out.println("Please enter the name of the Event to merge into");
         String userChoice2 = scanner.nextLine();
 
-//        String output = controller.mergeEvent(userChoice, userChoice2);
+        String output = controller.mergeEvent(userChoice, userChoice2);
+        System.out.println(output);
     }
 
     public static void mergeTask() {
+        System.out.println("Please enter the name of Event to merge");
+        String userChoice = scanner.nextLine();
+        System.out.println("Please enter the name of the Event to merge into");
+        String userChoice2 = scanner.nextLine();
 
+        String output = controller.mergeTask(userChoice, userChoice2);
+        System.out.println(output);
     }
 
     public static void sortTasks() {
