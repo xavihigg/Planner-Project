@@ -6,7 +6,7 @@ import com.planner.Controller;
 
 public class UserView {
     static Scanner scanner = new Scanner(System.in);
-
+    static Account user;
     static Controller controller = new Controller();
 
     public static void main(String[] args) {
@@ -19,7 +19,10 @@ public class UserView {
 
         switch (userChoice) {
             case 1:
-                // login here
+                System.out.println("Username?");
+                String username = scanner.nextLine();
+                System.out.println("Password ");
+                String password = scanner.nextLine();
                 break;
             case 2:
                 // create account Here
@@ -112,4 +115,29 @@ public class UserView {
     public static void generateSchedule() {
 
     }
+}
+
+public static void login(){
+    Account test = new Account("test","test");
+    String username;
+    String password;
+    System.out.println("Username?");
+    username = scanner.nextLine();
+    System.out.println("Password?");
+    password = scanner.nextLine();
+    if(test.login(username,password)){
+        user = test;
+    }
+    user.getProfile();
+}
+
+public static void createAccount(){
+    String username;
+    String password;
+    System.out.println("Username?");
+    username = scanner.nextLine();
+    System.out.println("Password?");
+    password = scanner.nextLine();
+    user = new Account(username, password);
+    user.getProfile();
 }
