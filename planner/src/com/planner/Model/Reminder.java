@@ -1,4 +1,3 @@
-import java.io.FilterInputStream;
 import java.util.*;
 import java.awt.*;
 import java.awt.TrayIcon.MessageType;
@@ -6,54 +5,25 @@ import java.text.*;
 
 public class Reminder extends TimerTask {
     
-    Scanner scan = new Scanner(new FilterInputStream(System.in){public void close(){}});
     protected Date time;
     protected String timeString;
     private String reminderCaption;
     private String reminderContent;
 
-    // Gets user info to set a reminder and schedules the notification
-    void setReminder()
+    // Sets reminder and schedules the notification
+    void setReminder(String rcap, String rcont, String timestr)
     {  
-        if (!SystemTray.isSupported()) {
-            System.err.println("System tray not supported! No reminder can be set");
-            return;
-        }
-        
-        System.out.println("Please enter a caption and content for this reminder: ");
-        System.out.print("Caption: ");
-        reminderCaption = scan.nextLine();
-        System.out.print("Content: ");
-        reminderContent = scan.nextLine();
-
-        System.out.println("Please enter the time for this reminder to notify you: ");
-        boolean check = false;
-        do {
-            System.out.print("Format is 'M/d/yyyy h:mm AM/PM' (e.g., 4/24/2042 4:42 PM): ");
-            timeString = scan.nextLine();
-
-            DateFormat dateParseTest = new SimpleDateFormat("M/d/yyyy h:mm a");
-            try {
-                dateParseTest.parse(timeString);
-                check = false;
-            } catch (ParseException e) {
-                System.out.println("Please try again");
-                check = true;
-            }
-        } while (check);
-
+        reminderCaption = rcap;
+        reminderContent = rcont;
+        timeString = timestr;
+      
         notifyUser();
     }
 
-    // Deletes the reminder
-    void deleteReminder()
+    // Deletes the reminder. Returns status
+    boolean deleteReminder()
     {
-        if(this.cancel()) {
-            System.out.println("This reminder has been removed!");
-        }
-        else {
-            System.out.println("There is no reminder to delete!");
-        }
+        return this.cancel();
     }
 
     // Internal method to schedule the reminder for a specific date and time
