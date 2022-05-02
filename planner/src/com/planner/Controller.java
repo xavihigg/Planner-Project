@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class Controller {
-
+    static Account user;
     public String getWeather(String city) {
         String key = "62473edf8cdf5b5a3b62eeaf18ed5cd7";
         String exampleUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key+ "&units=imperial";
@@ -124,5 +124,51 @@ public class Controller {
 
     public static void sortTasks() {
 
+    }
+    public static void login(){
+        Scanner scanner = new Scanner(System.in);
+        Account test = new Account("test","test");
+        String username;
+        String password;
+        System.out.println("Username?");
+        username = scanner.nextLine();
+        System.out.println("Password?");
+        password = scanner.nextLine();
+        if(test.login(username,password)){
+            user = test;
+        }
+        scanner.close();
+    }
+    
+    public static void logout(){
+        user = null;
+    }
+    
+    public static void createAccount(){
+        Scanner scanner = new Scanner(System.in);
+        String username;
+        String password;
+        System.out.println("Username?");
+        username = scanner.nextLine();
+        System.out.println("Password?");
+        password = scanner.nextLine();
+        user = new Account(username, password);
+        scanner.close();
+    }
+    
+    public static void editAccount(){
+        Scanner scanner = new Scanner(System.in);
+        String username;
+        String password;
+        System.out.println("New Username?");
+        username = scanner.nextLine();
+        System.out.println("New Password?");
+        password = scanner.nextLine();
+        user = new Account(username, password);
+        scanner.close();
+    }
+    
+    public static void deleteAccount(){
+        logout();
     }
 }
