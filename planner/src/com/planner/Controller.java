@@ -1,12 +1,16 @@
 package com.planner;
 
-import com.google.gson.*;
-
-import com.planner.Model.*;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.planner.Model.Account;
+import com.planner.Model.Task;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Controller {
@@ -48,81 +52,152 @@ public class Controller {
         return toReturn;
     }
 
-    public String mergeEvent(String eventOne, String eventTwo) {
-        // Validate the inputs
-        boolean validOne = false, validTwo = false;
-        int locationOne = 0;
-        int locationTwo = 0;
-        for (int i = 0; i < Account.events.toArray().length; i++) {
-            if (Account.events.get(i).equals(eventOne)) {
-                validOne = true;
-                locationOne = i;
-            }
-            if (Account.events.get(i).equals(eventTwo)) {
-                validTwo = true;
-                locationTwo = i;
-            }
-        }
+//    public String mergeEvent (String eventOne, String eventTwo) {
+//        // Validate the inputs
+//        boolean validOne = false, validTwo = false;
+//        int locationOne, locationTwo;
+//        for (int i = 0; i < Account.events.toArray().length; i++) {
+//            if (Account.events.get(i).equals(eventOne)) {
+//                validOne = true;
+//                locationOne = i;
+//            }
+//            if (Account.events.get(i).equals(eventTwo)) {
+//                validTwo = true;
+//                locationTwo = i;
+//            }
+//        }
+//
+//        if(!validOne && !validTwo) {
+//            return "Neither event exists";
+//        } else if (!validOne) {
+//            return eventOne + " does not exist";
+//        } else if (!validTwo) {
+//            return eventTwo + " does not exist";
+//        }
+//
+//
+//    }
 
-        if(!validOne && !validTwo) {
-            return "Neither event exists";
-        } else if (!validOne) {
-            return eventOne + " does not exist";
-        } else if (!validTwo) {
-            return eventTwo + " does not exist";
-        }
+    //////////////////// Will Y Use Cases ////////////////////////////////////////////
 
-        String titleOne = Account.events.get(locationOne).getTitle();
-        String titleTwo = Account.events.get(locationTwo).getTitle();
-
-        String descOne = Account.events.get(locationOne).getDesc();
-        String descTwo = Account.events.get(locationTwo).getDesc();
-
-        Account.events.get(locationTwo).setTitle(titleTwo + " & " + titleOne);
-        Account.events.get(locationTwo).setDesc(descTwo + "\n" + descOne);
-
-        //Account.events.get(locationOne).delete()
-        return "merge successful";
+    // Pass task creation info to Model
+    public void createTask(String taskName, String taskContent, String taskDueDate)
+    {
+        model.createTask(taskName, taskContent, taskDueDate);
     }
 
-    public String mergeTask(String eventOne, String eventTwo) {
-        // Validate the inputs
-        boolean validOne = false, validTwo = false;
-        int locationOne = 0;
-        int locationTwo = 0;
-        for (int i = 0; i < Account.tasks.toArray().length; i++) {
-            if (Account.tasks.get(i).equals(eventOne)) {
-                validOne = true;
-                locationOne = i;
-            }
-            if (Account.tasks.get(i).equals(eventTwo)) {
-                validTwo = true;
-                locationTwo = i;
-            }
-        }
-
-        if(!validOne && !validTwo) {
-            return "Neither event exists";
-        } else if (!validOne) {
-            return eventOne + " does not exist";
-        } else if (!validTwo) {
-            return eventTwo + " does not exist";
-        }
-
-//        String titleOne = Account.tasks.get(locationOne).getTitle();
-//        String titleTwo = Account.tasks.get(locationTwo).getTitle();
-//
-//        String descOne = Account.tasks.get(locationOne).getDesc();
-//        String descTwo = Account.tasks.get(locationTwo).getDesc();
-//
-//        Account.tasks.get(locationTwo).setTitle(titleTwo + " & " + titleOne);
-//        Account.tasks.get(locationTwo).setDesc(descTwo + "\n" + descOne);
-
-        //Account.events.get(locationOne).delete()
-        return "merge successful";
+    // Pass task editing info to Model
+    public void editTask(String taskInfo, char toEdit)
+    {
+        model.editTask(taskInfo, toEdit);
     }
 
-    public static void sortTasks() {
+    public static boolean deleteTask(String deleteChoice) {
+        ArrayList<Task> listOfTasks = Account.getTaskList();
+        Iterator<Task> iterator = listOfTasks.iterator();
+        Task check = iterator.next();
+        while(iterator.hasNext()) {
+            if(!check.getTaskName().equals(deleteChoice)) {
+                check = iterator.next();
+            }
+        }
+        if(check.getTaskName().equals(deleteChoice)) {
+            listOfTasks.remove(check);
+            Account.setTaskList(listOfTasks);
+            return true;
+        }
+        return false;
+    }
 
+    // Pass completion to Model
+    public void markTaskComplete()
+    {
+        model.markTaskComplete();
+    }
+
+    // Pass incompletion to Model
+    public void markTaskIncomplete()
+    {
+        model.markTaskIncomplete();
+    }
+
+    public boolean markTaskFavorite(String taskChoice) {
+        ArrayList<Task> listOfTasks = Account.getTaskList();
+        Iterator<Task> iterator = listOfTasks.iterator();
+        Task check = iterator.next();
+        while(iterator.hasNext()) {
+            if(!check.getTaskName().equals(taskChoice)) {
+                check = iterator.next();
+            }
+        }
+        if(check.getTaskName().equals(taskChoice)) {
+            check.markTaskAsFavorite();
+            Account.setTaskList(listOfTasks);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean unmarkTaskFavorite(String taskChoice) {
+        ArrayList<Task> listOfTasks = Account.getTaskList();
+        Iterator<Task> iterator = listOfTasks.iterator();
+        Task check = iterator.next();
+        while(iterator.hasNext()) {
+            if(!check.getTaskName().equals(taskChoice)) {
+                check = iterator.next();
+            }
+        }
+        if(check.getTaskName().equals(taskChoice)) {
+            check.unmarkTaskAsFavorite();
+            Account.setTaskList(listOfTasks);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean markTaskPriority(String taskChoice) {
+        ArrayList<Task> listOfTasks = Account.getTaskList();
+        Iterator<Task> iterator = listOfTasks.iterator();
+        Task check = iterator.next();
+        while(iterator.hasNext()) {
+            if(!check.getTaskName().equals(taskChoice)) {
+                check = iterator.next();
+            }
+        }
+        if(check.getTaskName().equals(taskChoice)) {
+            check.markTaskAsPriority();
+            Account.setTaskList(listOfTasks);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean umarkTaskPriority(String taskChoice) {
+        ArrayList<Task> listOfTasks = Account.getTaskList();
+        Iterator<Task> iterator = listOfTasks.iterator();
+        Task check = iterator.next();
+        while(iterator.hasNext()) {
+            if(!check.getTaskName().equals(taskChoice)) {
+                check = iterator.next();
+            }
+        }
+        if(check.getTaskName().equals(taskChoice)) {
+            check.unmarkTaskAsPriority();
+            Account.setTaskList(listOfTasks);
+            return true;
+        }
+        return false;
+    }
+
+    // Pass reminder info to Model
+    public void setReminder(String reminderCaption, String reminderContent, String timeString)
+    {
+        model.setReminder(reminderCaption, reminderContent, timeString);
+    }
+
+    // Pass deletion to Model
+    public boolean deleteReminder()
+    {
+        return model.deleteReminder();
     }
 }
