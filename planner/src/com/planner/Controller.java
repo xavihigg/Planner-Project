@@ -181,6 +181,12 @@ public class Controller {
         logout();
     }
 
+    public static void deleteAccount(String username){
+        Gson gson = new Gson();
+        classSaver.accountWriteToFile(gson.toJson(null),username);
+        logout();
+    }
+
     public static boolean createProfile(String Occupation,String OccupationTitle,String Location){
         return(user.createProfile(Occupation,OccupationTitle,Location));
     }
