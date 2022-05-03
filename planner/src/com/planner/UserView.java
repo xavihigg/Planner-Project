@@ -4,10 +4,12 @@ import java.awt.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.planner.Controller;
 import com.planner.Model.Account;
+import com.planner.Model.CreateCalendar;
 import com.planner.Model.Event;
 import com.planner.Model.Task;
 
@@ -49,19 +51,30 @@ public class UserView {
             default:
                 System.out.println("That was not a choice!");
         }
-        mainmenu();
+        mainMenu();
         exitProgram();
         System.out.println("thanks for using the program");
     }
 
-    public static void mainmenu() {
+    public static void mainMenu() {
+
+        CreateCalendar cal = new CreateCalendar();
+        Event event1 = new Event("help", "sadf", "asd", "asdf", "asdf");
+        Event event2 = new Event("bye", "sadf", "asd", "asdf", "asdf");
+        Event event3 = new Event("hello", "sadf", "asd", "asdf", "asdf");
+
+        cal.january.get(3).add(event1);
+        cal.january.get(3).add(event2);
+        cal.january.get(3).add(event3);
+
+
         System.out.println("This is the main menu");
         System.out.println(" 1     CreateCalendar");
         System.out.println(" 2     Create Task");
         System.out.println(" 3     Create Category");
         System.out.println(" 4     Get Weather ");
-        System.out.println(" 5     Merge task");
-        System.out.println(" 6     Merge event");
+        System.out.println(" 5     Merge event");
+        System.out.println(" 6     Merge task");
         System.out.println(" 7     Sort tasks");
         System.out.println(" 0     Exit Program");
         int userChoice = Integer.parseInt(scanner.nextLine());
@@ -89,6 +102,9 @@ public class UserView {
                 case 7:
                     sortTasks();
                     break;
+                case 8:
+                    generateSchedule();
+                    break;
                 default:
                     System.out.println("not a choice");
                     break;
@@ -97,8 +113,8 @@ public class UserView {
             System.out.println(" 2     Create Task");
             System.out.println(" 3     Create Category");
             System.out.println(" 4     Get Weather ");
-            System.out.println(" 5     Merge task");
-            System.out.println(" 6     Merge event");
+            System.out.println(" 5     Merge event");
+            System.out.println(" 6     Merge task");
             System.out.println(" 7     Sort tasks");
             System.out.println(" 0     Exit Program");
             userChoice = Integer.parseInt(scanner.nextLine());
@@ -137,6 +153,8 @@ public class UserView {
         String userChoice = scanner.nextLine();
         System.out.println("Please enter the name of the Event to merge into");
         String userChoice2 = scanner.nextLine();
+        System.out.println("Please enter the month in lowercase");
+        String userChoice3 = scanner.nextLine();
 
         String output = controller.mergeTask(userChoice, userChoice2);
         System.out.println(output);
@@ -147,7 +165,10 @@ public class UserView {
     }
 
     public static void generateSchedule() {
-
+        ArrayList<String> output = controller.generateSchedule();
+        for (int i = 0; i < output.size(); i++) {
+            System.out.println(output.get(i));
+        }
     }
 
     //////////////////// Will Y Use Cases ////////////////////////////////////////////

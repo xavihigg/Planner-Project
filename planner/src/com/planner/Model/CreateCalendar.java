@@ -1,7 +1,17 @@
+package com.planner.Model;
 
 import java.time.*;
+import java.util.ArrayList;
 
 public class CreateCalendar {
+	public static ArrayList<ArrayList<Event>> january = new ArrayList<ArrayList<Event>>(31);
+	
+	public CreateCalendar() {
+		for (int i = 0; i < 31; i++) {
+			this.january.add(new ArrayList<Event>());
+		}
+	}
+
 	private static int Days(String[] date) {
 		int numbOfDays = 0;
 		if(date[1].equals("01")) {
