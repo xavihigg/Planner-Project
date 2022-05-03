@@ -15,45 +15,47 @@ import com.planner.Model.Task;
 
 public class UserView {
     static Scanner scanner = new Scanner(System.in);
-
     static Controller controller = new Controller();
-
     public static void main(String[] args) {
-        Task task1 = new Task();
-        Task task2 = new Task();
-        Task task3 = new Task();
+        int userChoice = 1;
+        While(userChoice !=0){
+            Task task1 = new Task();
+            Task task2 = new Task();
+            Task task3 = new Task();
 
-        task1.setTaskName("largest");
-        task2.setTaskName("smallest");
-        task3.setTaskName("yessir");
-        task1.setTaskDueDate("21001203");
-        task2.setTaskDueDate("20191103");
-        task3.setTaskDueDate("20191105");
+            task1.setTaskName("largest");
+            task2.setTaskName("smallest");
+            task3.setTaskName("yessir");
+            task1.setTaskDueDate("21001203");
+            task2.setTaskDueDate("20191103");
+            task3.setTaskDueDate("20191105");
 
-        Account.tasks.add(task1);
-        Account.tasks.add(task2);
-        Account.tasks.add(task3);
+            Account.tasks.add(task1);
+            Account.tasks.add(task2);
+            Account.tasks.add(task3);
 
-        System.out.println("Welcome to Project Planner");
-        System.out.println("Would you like to login or create an account? ");
-        System.out.println(" 1     Login");
-        System.out.println(" 2     Create Account");
-
-        int userChoice = Integer.parseInt(scanner.nextLine());
-
-        switch (userChoice) {
-            case 1:
-                // login here
-                break;
-            case 2:
-                // create account Here
-                break;
-            default:
-                System.out.println("That was not a choice!");
+            System.out.println("Welcome to Project Planner");
+            System.out.println("Would you like to login or create an account? ");
+            System.out.println(" 1     Login");
+            System.out.println(" 2     Create Account");
+            System.out.println(" 0     Exit");
+            userChoice = Integer.parseInt(scanner.nextLine());
+            switch (userChoice) {
+                case 1:
+                    if(login()){
+                            mainMenu();
+                    }
+                case 2:
+                    createAccount();
+                        mainMenu();
+                        break;
+                case 0:
+                    System.out.println("thanks for using the program");
+                    exitProgram();
+                default:
+                    System.out.println("That was not a choice!");
+            }
         }
-        mainMenu();
-        exitProgram();
-        System.out.println("thanks for using the program");
     }
 
     public static void mainMenu() {
@@ -66,20 +68,23 @@ public class UserView {
         cal.january.get(3).add(event1);
         cal.january.get(3).add(event2);
         cal.january.get(3).add(event3);
-
-
-        System.out.println("This is the main menu");
-        System.out.println(" 1     CreateCalendar");
-        System.out.println(" 2     Create Task");
-        System.out.println(" 3     Create Category");
-        System.out.println(" 4     Get Weather ");
-        System.out.println(" 5     Merge event");
-        System.out.println(" 6     Merge task");
-        System.out.println(" 7     Sort tasks");
-        System.out.println(" 0     Exit Program");
-        int userChoice = Integer.parseInt(scanner.nextLine());
-
+        int userChoice = 1; 
         while (userChoice != 0) {
+            System.out.println("This is the main menu");
+            System.out.println(" 1     Create Calendar");
+            System.out.println(" 2     Create Task");
+            System.out.println(" 3     Create Category");
+            System.out.println(" 4     Get Weather ");
+            System.out.println(" 5     Create Profile");
+            System.out.println(" 6     Edit Profile");
+            System.out.println(" 7     View Occupation");
+            System.out.println(" 8     View Occupation Title");
+            System.out.println(" 9     View Location ");
+            System.out.println(" 10     Delete Profile");
+            System.out.println(" 11     Edit Account");            
+            System.out.println(" 12     Delete Account");
+            System.out.println(" 0     Logout");
+            userChoice = Integer.parseInt(scanner.nextLine());
             switch (userChoice) {
                 case 1:
                     // create calendar
@@ -91,7 +96,34 @@ public class UserView {
                     // create category
                     break;
                 case 4:
-                    getWeather();
+                    //getWeather();
+                    break;
+                case 5:
+                    createProfile();
+                    break;
+                case 6:
+                    editProfile();
+                    break;
+                case 7:
+                    viewOccupation();
+                    break;
+                case 8:
+                    viewTitle();
+                    break;
+                case 9:
+                    viewLocation();
+                    break;
+                case 10:
+                    deleteProfile();
+                    break;
+                case 11:
+                    editAccount();
+                    break;
+                case 12:
+                    deleteAccount();
+                    userChoice = 0;
+                case 0:
+                    logout();
                     break;
                 case 5:
                     mergeEvent();
@@ -109,43 +141,73 @@ public class UserView {
                     System.out.println("not a choice");
                     break;
             }
-            System.out.println(" 1     CreateCalendar");
-            System.out.println(" 2     Create Task");
-            System.out.println(" 3     Create Category");
-            System.out.println(" 4     Get Weather ");
-            System.out.println(" 5     Merge event");
-            System.out.println(" 6     Merge task");
-            System.out.println(" 7     Sort tasks");
-            System.out.println(" 0     Exit Program");
-            userChoice = Integer.parseInt(scanner.nextLine());
         }
     }
 
-    public static void exitProgram() {
-        //save info here
+    public static boolean login(){
+        String username;
+        String password;
+        System.out.println("Username?");
+        username = scanner.nextLine();
+        System.out.println("Password?");
+        password = scanner.nextLine();
+        return (controller.login(username,password));
     }
-    //////////////////// Xavier Use Cases ////////////////////////////////////////////
-    /**
-     * This function will return the current weather for a specified city
-     */
-    public static void getWeather() {
-        System.out.println("Please enter the name of the city");
-        String userChoice = scanner.nextLine();
-        String response = controller.getWeather(userChoice);
-        if (response.equals("HttpResponseCode: 404")) {
-            System.out.println("That city could not be found");
-        } else {
-            System.out.println("The weather in " + userChoice + " is " + response + "F");
+
+    public static void logout(){
+        controller.logout();
+    }
+
+    public static void createAccount(){
+        String username;
+        String password;
+        System.out.println("Username?");
+        username = scanner.nextLine();
+        System.out.println("Password?");
+        password = scanner.nextLine();
+        controller.createAccount(username,password);
+    }
+
+    public static void editAccount(){
+        String username;
+        String password;
+        System.out.println("New Username?");
+        username = scanner.nextLine();
+        System.out.println("New Password?");
+        password = scanner.nextLine();
+        controller.editAccount(username,password);
+    }
+
+    public static void deleteAccount(){
+        controller.deleteAccount();
+    }
+
+    public static void createProfile(){
+        String Occupation;
+        String OccupationTitle;
+        String Location; 
+        System.out.println("New Occupation?");
+        Occupation = scanner.nextLine();
+        System.out.println("New OccupationTitle?");
+        OccupationTitle = scanner.nextLine();
+        System.out.println("New Location?");
+        Location = scanner.nextLine();
+        if(!controller.createProfile(Occupation,OccupationTitle,Location)){
+            System.out.println("Profile Already Exist");
         }
     }
-    public static void mergeEvent() {
-        System.out.println("Please enter the name of Event to merge");
-        String userChoice = scanner.nextLine();
-        System.out.println("Please enter the name of the Event to merge into");
-        String userChoice2 = scanner.nextLine();
 
-        String output = controller.mergeEvent(userChoice, userChoice2);
-        System.out.println(output);
+    public static void editProfile(){
+        String Occupation;
+        String OccupationTitle;
+        String Location; 
+        System.out.println("New Occupation?");
+        Occupation = scanner.nextLine();
+        System.out.println("New OccupationTitle?");
+        OccupationTitle = scanner.nextLine();
+        System.out.println("New Location?");
+        Location = scanner.nextLine();
+        controller.editProfile(Occupation,OccupationTitle,Location);
     }
 
     public static void mergeTask() {
@@ -282,4 +344,39 @@ public class UserView {
 //            System.out.println("There is no reminder to delete!");
 //        }
 //    }
+
+public static void viewOccupation(){
+        if(controller.viewOccupation().equals("null")){
+            System.out.println("This user has not created a profile");
+        }
+        else{
+            System.out.println("Occupation: " + controller.viewOccupation());
+        }
+    }
+
+    public static void viewTitle(){
+        if(controller.viewTitle().equals("null")){
+            System.out.println("This user has not created a profile");
+        }
+        else{
+            System.out.println("Occupation Title: " + controller.viewTitle());
+        }
+    }
+
+    public static void  viewLocation(){
+        if(controller.viewLocation().equals("null")){
+            System.out.println("This user has not created a profile");
+        }
+        else{
+            System.out.println("Location: " + controller.viewLocation());
+        }
+    }
+
+    public static void deleteProfile(){
+        controller.deleteProfiel();
+    }
+
+    public static void exitProgram(){
+
+    }
 }
