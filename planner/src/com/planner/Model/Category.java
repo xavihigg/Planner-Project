@@ -2,7 +2,7 @@ package com.planner.Model;
 
 import java.io.*;
 import java.util.*;
-
+import com.planner.Model.*;
 public class Category {
 	private String categoryName;
 	private String color;

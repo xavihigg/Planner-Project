@@ -1,6 +1,6 @@
 package com.planner;
 
-import com.planner.Model.Reminder;
+import com.planner.Model.*;
 
 public class ReminderTest {
     public static void main(String [] args) {

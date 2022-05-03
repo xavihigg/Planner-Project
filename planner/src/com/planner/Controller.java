@@ -398,6 +398,10 @@ public class Controller {
         ArrayList<Task>tasksCopy = (ArrayList<Task>) Account.tasks.clone();
         int length = tasksCopy.toArray().length;
 
+        if (length == 0) {
+            return "Array is Empty";
+        }
+
         for (int i = 0; i < length - 1; i++) {
             for (int j = 0; j < length - i - 1; j++) {
                 if (Integer.parseInt(tasksCopy.get(j).getTaskDueDate()) > Integer.parseInt(tasksCopy.get(j + 1).getTaskDueDate())) {
@@ -617,7 +621,7 @@ public class Controller {
         user = null;
         Gson gson = new Gson();
         classSaver.accountWriteToFile(gson.toJson(user),temp);
-        logout();
+        //logout();
     }
 
     public static void deleteAccount(String username){
@@ -652,39 +656,42 @@ public class Controller {
     //////////////////// Will Y Use Cases ////////////////////////////////////////////
 
     // Pass task creation info to Model
-//    public void createTask(String taskName, String taskContent, String taskDueDate)
-//    {
-//        Task test = new Task();
-//        test.createTask(taskName, taskContent, taskDueDate);
-//    }
-//
-//    // Pass task editing info to Model
-//    public void editTask(String taskInfo, char toEdit)
-//    {
-//        model.editTask(taskInfo, toEdit);
-//    }
-//
-//    // Pass completion to Model
-//    public void markTaskComplete()
-//    {
-//        model.markTaskComplete();
-//    }
-//
-//    // Pass incompletion to Model
-//    public void markTaskIncomplete()
-//    {
-//        model.markTaskIncomplete();
-//    }
-//
-//    // Pass reminder info to Model
-//    public void setReminder(String reminderCaption, String reminderContent, String timeString)
-//    {
-//        model.setReminder(reminderCaption, reminderContent, timeString);
-//    }
-//
-//    // Pass deletion to Model
-//    public boolean deleteReminder()
-//    {
-//        return model.deleteReminder();
-//    }
+    public void createTask(String taskName, String taskContent, String taskDueDate)
+    {
+        Task test = new Task();
+        test.createTask(taskName, taskContent, taskDueDate);
+        Account.tasks.add(test);
+    }
+
+    // Pass task editing info to Model
+    Task t = new Task();
+    Reminder r = new Reminder();
+    public void editTask(String taskInfo, char toEdit)
+    {
+        t.editTask(taskInfo, toEdit);
+    }
+
+    // Pass completion to Model
+    public void markTaskComplete()
+    {
+        t.markTaskComplete();
+    }
+
+    // Pass incompletion to Model
+    public void markTaskIncomplete()
+    {
+        t.markTaskIncomplete();
+    }
+
+    // Pass reminder info to Model
+    public void setReminder(String reminderCaption, String reminderContent, String timeString)
+    {
+        r.setReminder(reminderCaption, reminderContent, timeString);
+    }
+
+    // Pass deletion to Model
+    public boolean deleteReminder()
+    {
+        return r.deleteReminder();
+    }
 }

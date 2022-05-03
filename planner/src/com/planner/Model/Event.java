@@ -2,6 +2,7 @@ package com.planner.Model;
 
 import java.time.*;
 import java.util.*;
+import com.planner.Model.*;
 
 public class Event {
 	private String title;

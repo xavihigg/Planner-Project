@@ -3,6 +3,8 @@ package com.planner.Model;
 import java.util.*;
 import java.time.*;
 
+import com.planner.Model.*;
+
 public class Calendar {
 	public static ArrayList<ArrayList<Event>> january = new ArrayList<ArrayList<Event>>(31);
 	public static ArrayList<ArrayList<Event>> feburary = new ArrayList<ArrayList<Event>>(28);
