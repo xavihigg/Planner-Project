@@ -7,6 +7,7 @@ import com.planner.Model.*;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
@@ -54,11 +55,11 @@ public class Controller {
         int locationOne = 0;
         int locationTwo = 0;
         for (int i = 0; i < Account.events.toArray().length; i++) {
-            if (Account.events.get(i).equals(eventOne)) {
+            if (Account.events.get(i).getTitle().equals(eventOne)) {
                 validOne = true;
                 locationOne = i;
             }
-            if (Account.events.get(i).equals(eventTwo)) {
+            if (Account.events.get(i).getTitle().equals(eventTwo)) {
                 validTwo = true;
                 locationTwo = i;
             }
@@ -81,7 +82,7 @@ public class Controller {
         Account.events.get(locationTwo).setTitle(titleTwo + " & " + titleOne);
         Account.events.get(locationTwo).setDesc(descTwo + "\n" + descOne);
 
-        //Account.events.get(locationOne).delete()
+        Account.events.remove(locationOne);
         return "merge successful";
     }
 
@@ -91,11 +92,12 @@ public class Controller {
         int locationOne = 0;
         int locationTwo = 0;
         for (int i = 0; i < Account.tasks.toArray().length; i++) {
-            if (Account.tasks.get(i).equals(eventOne)) {
+            System.out.println(Account.tasks.get(i).getTaskName());
+            if (Account.tasks.get(i).getTaskName().equals(eventOne)) {
                 validOne = true;
                 locationOne = i;
             }
-            if (Account.tasks.get(i).equals(eventTwo)) {
+            if (Account.tasks.get(i).getTaskName().equals(eventTwo)) {
                 validTwo = true;
                 locationTwo = i;
             }
@@ -109,20 +111,76 @@ public class Controller {
             return eventTwo + " does not exist";
         }
 
-//        String titleOne = Account.tasks.get(locationOne).getTitle();
-//        String titleTwo = Account.tasks.get(locationTwo).getTitle();
-//
-//        String descOne = Account.tasks.get(locationOne).getDesc();
-//        String descTwo = Account.tasks.get(locationTwo).getDesc();
-//
-//        Account.tasks.get(locationTwo).setTitle(titleTwo + " & " + titleOne);
-//        Account.tasks.get(locationTwo).setDesc(descTwo + "\n" + descOne);
+        String titleOne = Account.tasks.get(locationOne).getTaskName();
+        String titleTwo = Account.tasks.get(locationTwo).getTaskName();
 
-        //Account.events.get(locationOne).delete()
+        String descOne = Account.tasks.get(locationOne).getTaskContent();
+        String descTwo = Account.tasks.get(locationTwo).getTaskContent();
+
+       Account.tasks.get(locationTwo).setTaskName(titleTwo + " & " + titleOne);
+        Account.tasks.get(locationTwo).setTaskContent(descTwo + "\n" + descOne);
+
+
+        Account.tasks.remove(locationOne);
         return "merge successful";
     }
 
-    public static void sortTasks() {
+    public String sortTasks() {
+        ArrayList<Task>tasksCopy = (ArrayList<Task>) Account.tasks.clone();
+        int length = tasksCopy.toArray().length;
 
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = 0; j < length - i - 1; j++) {
+                if (Integer.parseInt(tasksCopy.get(j).getTaskDueDate()) > Integer.parseInt(tasksCopy.get(j + 1).getTaskDueDate())) {
+                    Task temp = tasksCopy.get(j);
+                    tasksCopy.set(j, tasksCopy.get(j + 1));
+                    tasksCopy.set(j + 1, temp);
+                }
+            }
+        }
+
+        String output = tasksCopy.get(0).getTaskName();
+        for (int i = 1; i < length; i++) {
+            output = output + " -> " + tasksCopy.get(i).getTaskName();
+        }
+        return output;
     }
+
+    //////////////////// Will Y Use Cases ////////////////////////////////////////////
+
+    // Pass task creation info to Model
+//    public void createTask(String taskName, String taskContent, String taskDueDate)
+//    {
+//        model.createTask(taskName, taskContent, taskDueDate);
+//    }
+//
+//    // Pass task editing info to Model
+//    public void editTask(String taskInfo, char toEdit)
+//    {
+//        model.editTask(taskInfo, toEdit);
+//    }
+//
+//    // Pass completion to Model
+//    public void markTaskComplete()
+//    {
+//        model.markTaskComplete();
+//    }
+//
+//    // Pass incompletion to Model
+//    public void markTaskIncomplete()
+//    {
+//        model.markTaskIncomplete();
+//    }
+//
+//    // Pass reminder info to Model
+//    public void setReminder(String reminderCaption, String reminderContent, String timeString)
+//    {
+//        model.setReminder(reminderCaption, reminderContent, timeString);
+//    }
+//
+//    // Pass deletion to Model
+//    public boolean deleteReminder()
+//    {
+//        return model.deleteReminder();
+//    }
 }
