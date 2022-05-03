@@ -64,234 +64,234 @@ public class Controller {
         int cord3 = 0;
         int cord4 = 0;
 
-        for (int i = 0; i < CreateCalendar.january.size(); i++) {
-            for (int j = 0; j < CreateCalendar.january.get(i).size(); j++) {
-                if(CreateCalendar.january.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.january.size(); i++) {
+            for (int j = 0; j < Calendar.january.get(i).size(); j++) {
+                if(Calendar.january.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.january.get(i).get(j);
+                    eventOneCopy = Calendar.january.get(i).get(j);
                     monthOne = "january";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.january.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.january.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.january.get(i).get(j);
+                    eventTwoCopy = Calendar.january.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.february.size(); i++) {
-            for (int j = 0; j < CreateCalendar.february.get(i).size(); j++) {
-                if(CreateCalendar.february.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.february.size(); i++) {
+            for (int j = 0; j < Calendar.february.get(i).size(); j++) {
+                if(Calendar.february.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.february.get(i).get(j);
+                    eventOneCopy = Calendar.february.get(i).get(j);
                     monthOne = "february";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.february.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.february.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.february.get(i).get(j);
+                    eventTwoCopy = Calendar.february.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.march.size(); i++) {
-            for (int j = 0; j < CreateCalendar.march.get(i).size(); j++) {
-                if(CreateCalendar.march.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.march.size(); i++) {
+            for (int j = 0; j < Calendar.march.get(i).size(); j++) {
+                if(Calendar.march.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.march.get(i).get(j);
+                    eventOneCopy = Calendar.march.get(i).get(j);
                     monthOne = "march";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.march.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.march.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.march.get(i).get(j);
+                    eventTwoCopy = Calendar.march.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.april.size(); i++) {
-            for (int j = 0; j < CreateCalendar.april.get(i).size(); j++) {
-                if(CreateCalendar.april.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.april.size(); i++) {
+            for (int j = 0; j < Calendar.april.get(i).size(); j++) {
+                if(Calendar.april.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.april.get(i).get(j);
+                    eventOneCopy = Calendar.april.get(i).get(j);
                     monthOne = "april";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.april.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.april.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.april.get(i).get(j);
+                    eventTwoCopy = Calendar.april.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.april.size(); i++) {
-            for (int j = 0; j < CreateCalendar.april.get(i).size(); j++) {
-                if(CreateCalendar.april.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.april.size(); i++) {
+            for (int j = 0; j < Calendar.april.get(i).size(); j++) {
+                if(Calendar.april.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.april.get(i).get(j);
+                    eventOneCopy = Calendar.april.get(i).get(j);
                     monthOne = "april";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.april.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.april.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.april.get(i).get(j);
+                    eventTwoCopy = Calendar.april.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.may.size(); i++) {
-            for (int j = 0; j < CreateCalendar.may.get(i).size(); j++) {
-                if(CreateCalendar.may.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.may.size(); i++) {
+            for (int j = 0; j < Calendar.may.get(i).size(); j++) {
+                if(Calendar.may.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.may.get(i).get(j);
+                    eventOneCopy = Calendar.may.get(i).get(j);
                     monthOne = "january";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.may.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.may.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.may.get(i).get(j);
+                    eventTwoCopy = Calendar.may.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.june.size(); i++) {
-            for (int j = 0; j < CreateCalendar.june.get(i).size(); j++) {
-                if(CreateCalendar.june.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.june.size(); i++) {
+            for (int j = 0; j < Calendar.june.get(i).size(); j++) {
+                if(Calendar.june.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.june.get(i).get(j);
+                    eventOneCopy = Calendar.june.get(i).get(j);
                     monthOne = "june";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.june.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.june.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.june.get(i).get(j);
+                    eventTwoCopy = Calendar.june.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.july.size(); i++) {
-            for (int j = 0; j < CreateCalendar.july.get(i).size(); j++) {
-                if(CreateCalendar.july.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.july.size(); i++) {
+            for (int j = 0; j < Calendar.july.get(i).size(); j++) {
+                if(Calendar.july.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.july.get(i).get(j);
+                    eventOneCopy = Calendar.july.get(i).get(j);
                     monthOne = "july";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.july.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.july.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.july.get(i).get(j);
+                    eventTwoCopy = Calendar.july.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.august.size(); i++) {
-            for (int j = 0; j < CreateCalendar.august.get(i).size(); j++) {
-                if(CreateCalendar.august.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.august.size(); i++) {
+            for (int j = 0; j < Calendar.august.get(i).size(); j++) {
+                if(Calendar.august.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.august.get(i).get(j);
+                    eventOneCopy = Calendar.august.get(i).get(j);
                     monthOne = "august";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.august.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.august.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.august.get(i).get(j);
+                    eventTwoCopy = Calendar.august.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.september.size(); i++) {
-            for (int j = 0; j < CreateCalendar.september.get(i).size(); j++) {
-                if(CreateCalendar.september.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.september.size(); i++) {
+            for (int j = 0; j < Calendar.september.get(i).size(); j++) {
+                if(Calendar.september.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.september.get(i).get(j);
+                    eventOneCopy = Calendar.september.get(i).get(j);
                     monthOne = "september";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.september.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.september.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.september.get(i).get(j);
+                    eventTwoCopy = Calendar.september.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.october.size(); i++) {
-            for (int j = 0; j < CreateCalendar.october.get(i).size(); j++) {
-                if(CreateCalendar.october.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.october.size(); i++) {
+            for (int j = 0; j < Calendar.october.get(i).size(); j++) {
+                if(Calendar.october.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.october.get(i).get(j);
+                    eventOneCopy = Calendar.october.get(i).get(j);
                     monthOne = "october";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.october.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.october.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.october.get(i).get(j);
+                    eventTwoCopy = Calendar.october.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.november.size(); i++) {
-            for (int j = 0; j < CreateCalendar.november.get(i).size(); j++) {
-                if(CreateCalendar.november.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.november.size(); i++) {
+            for (int j = 0; j < Calendar.november.get(i).size(); j++) {
+                if(Calendar.november.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.november.get(i).get(j);
+                    eventOneCopy = Calendar.november.get(i).get(j);
                     monthOne = "november";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.november.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.november.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.november.get(i).get(j);
+                    eventTwoCopy = Calendar.november.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
             }
         }
 
-        for (int i = 0; i < CreateCalendar.december.size(); i++) {
-            for (int j = 0; j < CreateCalendar.december.get(i).size(); j++) {
-                if(CreateCalendar.december.get(i).get(j).getTitle().equals(eventOne)) {
+        for (int i = 0; i < Calendar.december.size(); i++) {
+            for (int j = 0; j < Calendar.december.get(i).size(); j++) {
+                if(Calendar.december.get(i).get(j).getTitle().equals(eventOne)) {
                     validOne = true;
-                    eventOneCopy = CreateCalendar.december.get(i).get(j);
+                    eventOneCopy = Calendar.december.get(i).get(j);
                     monthOne = "december";
                     cord1 = i;
                     cord2 = j;
                 }
-                if(CreateCalendar.december.get(i).get(j).getTitle().equals(eventTwo)) {
+                if(Calendar.december.get(i).get(j).getTitle().equals(eventTwo)) {
                     validTwo = true;
-                    eventTwoCopy = CreateCalendar.december.get(i).get(j);
+                    eventTwoCopy = Calendar.december.get(i).get(j);
                     cord3 = i;
                     cord4 = j;
                 }
@@ -311,46 +311,46 @@ public class Controller {
 
         switch(monthOne) {
             case "january":
-                CreateCalendar.january.get(cord1).remove(cord2);
+                Calendar.january.get(cord1).remove(cord2);
                 break;
             case "february":
-                CreateCalendar.february.get(cord1).remove(cord2);
+                Calendar.february.get(cord1).remove(cord2);
                 break;
             case "march":
-                CreateCalendar.march.get(cord1).remove(cord2);
+                Calendar.march.get(cord1).remove(cord2);
                 break;
             case "april":
-                CreateCalendar.april.get(cord1).remove(cord2);
+                Calendar.april.get(cord1).remove(cord2);
                 break;
             case "may":
-                CreateCalendar.may.get(cord1).remove(cord2);
+                Calendar.may.get(cord1).remove(cord2);
                 break;
             case "june":
-                CreateCalendar.june.get(cord1).remove(cord2);
+                Calendar.june.get(cord1).remove(cord2);
                 break;
             case "july":
-                CreateCalendar.july.get(cord1).remove(cord2);
+                Calendar.july.get(cord1).remove(cord2);
                 break;
             case "august":
-                CreateCalendar.august.get(cord1).remove(cord2);
+                Calendar.august.get(cord1).remove(cord2);
                 break;
             case "september":
-                CreateCalendar.september.get(cord1).remove(cord2);
+                Calendar.september.get(cord1).remove(cord2);
                 break;
             case "october":
-                CreateCalendar.october.get(cord1).remove(cord2);
+                Calendar.october.get(cord1).remove(cord2);
                 break;
             case "november":
-                CreateCalendar.november.get(cord1).remove(cord2);
+                Calendar.november.get(cord1).remove(cord2);
                 break;
             case "december":
-                CreateCalendar.december.get(cord1).remove(cord2);
+                Calendar.december.get(cord1).remove(cord2);
                 break;
 
         }
 
-        System.out.println(CreateCalendar.january.get(cord3).get(cord4).getTitle());
-        return "merge successful, the new name is: " + CreateCalendar.january.get(cord3).get(cord4).getTitle();
+        System.out.println(Calendar.january.get(cord3).get(cord4).getTitle());
+        return "merge successful, the new name is: " + Calendar.january.get(cord3).get(cord4).getTitle();
     }
 
     public String mergeTask(String taskOne, String taskTwo) {
@@ -424,146 +424,146 @@ public class Controller {
 
         switch(month.format(now)) {
             case "05":
-                if (dayNum + 7 > CreateCalendar.january.size()) {
-                    target = CreateCalendar.january.size();
+                if (dayNum + 7 > Calendar.january.size()) {
+                    target = Calendar.january.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.january.get(i).size(); j++) {
-                        output.add(CreateCalendar.january.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.january.get(i).size(); j++) {
+                        output.add(Calendar.january.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "02":
-                if (dayNum + 7 > CreateCalendar.february.size()) {
-                    target = CreateCalendar.february.size();
+                if (dayNum + 7 > Calendar.february.size()) {
+                    target = Calendar.february.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.february.get(i).size(); j++) {
-                        output.add(CreateCalendar.february.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.february.get(i).size(); j++) {
+                        output.add(Calendar.february.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "03":
-                if (dayNum + 7 > CreateCalendar.march.size()) {
-                    target = CreateCalendar.march.size();
+                if (dayNum + 7 > Calendar.march.size()) {
+                    target = Calendar.march.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.march.get(i).size(); j++) {
-                        output.add(CreateCalendar.march.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.march.get(i).size(); j++) {
+                        output.add(Calendar.march.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "04":
-                if (dayNum + 7 > CreateCalendar.april.size()) {
-                    target = CreateCalendar.april.size();
+                if (dayNum + 7 > Calendar.april.size()) {
+                    target = Calendar.april.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.april.get(i).size(); j++) {
-                        output.add(CreateCalendar.april.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.april.get(i).size(); j++) {
+                        output.add(Calendar.april.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "05":
-                if (dayNum + 7 > CreateCalendar.may.size()) {
-                    target = CreateCalendar.may.size();
+                if (dayNum + 7 > Calendar.may.size()) {
+                    target = Calendar.may.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.may.get(i).size(); j++) {
-                        output.add(CreateCalendar.may.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.may.get(i).size(); j++) {
+                        output.add(Calendar.may.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "06":
-                if (dayNum + 7 > CreateCalendar.june.size()) {
-                    target = CreateCalendar.june.size();
+                if (dayNum + 7 > Calendar.june.size()) {
+                    target = Calendar.june.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.june.get(i).size(); j++) {
-                        output.add(CreateCalendar.june.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.june.get(i).size(); j++) {
+                        output.add(Calendar.june.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "07":
-                if (dayNum + 7 > CreateCalendar.july.size()) {
-                    target = CreateCalendar.july.size();
+                if (dayNum + 7 > Calendar.july.size()) {
+                    target = Calendar.july.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.july.get(i).size(); j++) {
-                        output.add(CreateCalendar.july.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.july.get(i).size(); j++) {
+                        output.add(Calendar.july.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "08":
-                if (dayNum + 7 > CreateCalendar.august.size()) {
-                    target = CreateCalendar.august.size();
+                if (dayNum + 7 > Calendar.august.size()) {
+                    target = Calendar.august.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.august.get(i).size(); j++) {
-                        output.add(CreateCalendar.august.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.august.get(i).size(); j++) {
+                        output.add(Calendar.august.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "09":
-                if (dayNum + 7 > CreateCalendar.september.size()) {
-                    target = CreateCalendar.september.size();
+                if (dayNum + 7 > Calendar.september.size()) {
+                    target = Calendar.september.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.september.get(i).size(); j++) {
-                        output.add(CreateCalendar.september.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.september.get(i).size(); j++) {
+                        output.add(Calendar.september.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "10":
-                if (dayNum + 7 > CreateCalendar.october.size()) {
-                    target = CreateCalendar.october.size();
+                if (dayNum + 7 > Calendar.october.size()) {
+                    target = Calendar.october.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.october.get(i).size(); j++) {
-                        output.add(CreateCalendar.october.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.october.get(i).size(); j++) {
+                        output.add(Calendar.october.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "11":
-                if (dayNum + 7 > CreateCalendar.november.size()) {
-                    target = CreateCalendar.november.size();
+                if (dayNum + 7 > Calendar.november.size()) {
+                    target = Calendar.november.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.november.get(i).size(); j++) {
-                        output.add(CreateCalendar.november.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.november.get(i).size(); j++) {
+                        output.add(Calendar.november.get(i).get(j).getTitle());
                     }
                 }
                 break;
             case "12":
-                if (dayNum + 7 > CreateCalendar.december.size()) {
-                    target = CreateCalendar.december.size();
+                if (dayNum + 7 > Calendar.december.size()) {
+                    target = Calendar.december.size();
                 } else {
                     target = dayNum + 7;
                 }
                 for (int i = dayNum; i < target; i++) {
-                    for (int j = 0; j < CreateCalendar.december.get(i).size(); j++) {
-                        output.add(CreateCalendar.december.get(i).get(j).getTitle());
+                    for (int j = 0; j < Calendar.december.get(i).size(); j++) {
+                        output.add(Calendar.december.get(i).get(j).getTitle());
                     }
                 }
                 break;

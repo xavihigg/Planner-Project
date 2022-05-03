@@ -3,10 +3,10 @@ package com.planner.Model;
 import java.time.*;
 import java.util.ArrayList;
 
-public class CreateCalendar {
+public class Calendar {
 	public static ArrayList<ArrayList<Event>> january = new ArrayList<ArrayList<Event>>(31);
 	
-	public CreateCalendar() {
+	public Calendar() {
 		for (int i = 0; i < 31; i++) {
 			this.january.add(new ArrayList<Event>());
 		}
