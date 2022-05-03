@@ -4,7 +4,7 @@ import java.awt.TrayIcon.MessageType;
 import java.text.*;
 
 public class Reminder extends TimerTask {
-
+    
     protected Date time;
     protected String timeString;
     private String reminderCaption;
@@ -12,11 +12,11 @@ public class Reminder extends TimerTask {
 
     // Sets reminder and schedules the notification
     void setReminder(String rcap, String rcont, String timestr)
-    {
+    {  
         reminderCaption = rcap;
         reminderContent = rcont;
         timeString = timestr;
-
+      
         notifyUser();
     }
 

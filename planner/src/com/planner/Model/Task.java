@@ -8,28 +8,28 @@ public class Task {
     private boolean isComplete = false;
 
     // Creates a task
-    public void createTask(String tn, String tc, String tdd)
+    void createTask(String tn, String tc, String tdd)
     {
-        this.taskName = tn;
-        this.taskContent = tc;
-        this.taskDueDate = tdd;
+        taskName = tn;
+        taskContent = tc;
+        taskDueDate = tdd;
     }
 
     // Edits attributes of the task
     void editTask(String taskInfo, char toEdit)
-    {
+    {  
         switch (toEdit) {
             case 'N':
-                taskName = taskInfo;
-                break;
+                    taskName = taskInfo;
+                    break;
             case 'C':
-                taskContent = taskInfo;
-                break;
+                    taskContent = taskInfo;
+                    break;
             case 'D':
-                taskDueDate = taskInfo;
-                break;
+                    taskDueDate = taskInfo;
+                    break;
             default:
-                break;
+                    break;
         }
     }
 
@@ -46,17 +46,17 @@ public class Task {
     }
 
     // Getters
-    public String getTaskName()
+    String getTaskName()
     {
         return taskName;
     }
 
-    public String getTaskContent()
+    String getTaskContent()
     {
         return taskContent;
     }
 
-    public String getTaskDueDate()
+    String getTaskDueDate()
     {
         return taskDueDate;
     }
@@ -67,17 +67,17 @@ public class Task {
     }
 
     // Setters
-    public void setTaskName(String tn)
+    void setTaskName(String tn)
     {
         taskName = tn;
     }
 
-    public void setTaskContent(String tc)
+    void setTaskContent(String tc)
     {
         taskContent = tc;
     }
 
-    public void setTaskDueDate(String tdd)
+    void setTaskDueDate(String tdd)
     {
         taskDueDate = tdd;
     }
