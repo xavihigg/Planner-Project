@@ -1,25 +1,27 @@
 package com.planner.Model;
 
-import java.io.*;
 import java.time.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class Event {
 	private String title;
 	private String desc;
 	private String time;
 	private String daily;
-	private String category;
+	private Category category;
 	
 	public Event() {
-		this.getTitle();
-		this.getDesc();
-		this.getTime();
-		this.getDaily();
-		this.getCategory();
+		
 	}
 	
-	public Event(String title, String desc, String time, String daily, String Category) {
+	public Event(String title, String desc, String time, String daily) {
+		this.setTitle(title);
+		this.setDesc(desc);
+		this.setTime(time);
+		this.setDaily(daily);
+	}
+	
+	public Event(String title, String desc, String time, String daily, Category Category) {
 		this.setTitle(title);
 		this.setDesc(desc);
 		this.setTime(time);
@@ -87,7 +89,7 @@ public class Event {
 		System.out.print("___________________________________________________");
 	}
 	
-	public void createEvent(String timeSelected) {
+	public void createEvent(String timeSelected, String daySelected, String date, Calendar calendar) {
 		String input = "";
 		Scanner scan = new Scanner(System.in);
 		System.out.print("\nEvent title: ");
@@ -119,11 +121,778 @@ public class Event {
 		
 		String input5 = "";
 		Scanner scan5 = new Scanner(System.in);
-		System.out.print("\nEvent category(optional): ");
-		input5 = scan5.nextLine();
+		System.out.print("\nDoes this event have a category?(Y/N): ");
+		while(scan5.hasNext()) {
+			input5 = scan5.next();
+			if(input5.equalsIgnoreCase("Y") || input5.equalsIgnoreCase("N"))
+				break;
+			System.out.print("\nDoes this event have a category?(Y/N): ");
+		}
 		
-		Event description = new Event(input, input2, input3, input4, input5);
-
+		Event description = new Event();
+		if(input5.equalsIgnoreCase("Y")) {
+			Category category = new Category();
+			description = new Event(input, input2, input3, input4, category);
+		}
+		if(input5.equalsIgnoreCase("N")) {
+			description = new Event(input, input2, input3, input4);
+		}
+		
+		if(date.equals("01")) {
+			if(daySelected.equals("1"))
+				calendar.january.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.january.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.january.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.january.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.january.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.january.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.january.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.january.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.january.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.january.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.january.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.january.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.january.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.january.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.january.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.january.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.january.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.january.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.january.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.january.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.january.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.january.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.january.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.january.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.january.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.january.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.january.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.january.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.january.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.january.get(30).add(description);
+			if(daySelected.equals("31"))
+				calendar.january.get(31).add(description);
+		}
+		if(date.equals("02")) {
+			if(daySelected.equals("1"))
+				calendar.feburary.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.feburary.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.feburary.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.feburary.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.feburary.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.feburary.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.feburary.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.feburary.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.feburary.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.feburary.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.feburary.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.feburary.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.feburary.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.feburary.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.feburary.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.feburary.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.feburary.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.feburary.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.feburary.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.feburary.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.feburary.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.feburary.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.feburary.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.feburary.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.feburary.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.feburary.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.feburary.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.feburary.get(28).add(description);
+		}
+		if(date.equals("03")) {
+			if(daySelected.equals("1"))
+				calendar.march.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.march.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.march.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.march.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.march.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.march.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.march.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.march.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.march.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.march.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.march.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.march.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.march.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.march.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.march.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.march.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.march.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.march.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.march.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.march.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.march.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.march.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.march.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.march.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.march.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.march.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.march.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.march.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.march.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.march.get(30).add(description);
+			if(daySelected.equals("31"))
+				calendar.march.get(31).add(description);
+		}
+		if(date.equals("04")) {
+			if(daySelected.equals("1"))
+				calendar.april.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.april.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.april.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.april.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.april.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.april.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.april.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.april.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.april.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.april.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.april.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.april.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.april.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.april.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.april.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.april.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.april.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.april.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.april.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.april.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.april.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.april.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.april.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.april.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.april.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.april.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.april.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.april.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.april.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.april.get(30).add(description);
+		}
+		if(date.equals("05")) {
+			if(daySelected.equals("1"))
+				calendar.may.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.may.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.may.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.may.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.may.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.may.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.may.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.may.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.may.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.may.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.may.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.may.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.may.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.may.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.may.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.may.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.may.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.may.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.may.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.may.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.may.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.may.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.may.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.may.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.may.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.may.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.may.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.may.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.may.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.may.get(30).add(description);
+			if(daySelected.equals("31"))
+				calendar.may.get(31).add(description);
+		}
+		if(date.equals("06")) {
+			if(daySelected.equals("1"))
+				calendar.june.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.june.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.june.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.june.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.june.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.june.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.june.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.june.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.june.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.june.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.june.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.june.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.june.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.june.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.june.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.june.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.june.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.june.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.june.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.june.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.june.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.june.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.june.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.june.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.june.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.june.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.june.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.june.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.june.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.june.get(30).add(description);
+		}
+		if(date.equals("07")) {
+			if(daySelected.equals("1"))
+				calendar.july.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.july.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.july.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.july.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.july.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.july.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.july.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.july.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.july.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.july.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.july.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.july.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.july.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.july.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.july.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.july.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.july.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.july.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.july.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.july.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.july.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.july.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.july.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.july.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.july.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.july.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.july.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.july.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.july.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.july.get(30).add(description);
+			if(daySelected.equals("31"))
+				calendar.july.get(31).add(description);
+		}
+		if(date.equals("08")) {
+			if(daySelected.equals("1"))
+				calendar.august.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.august.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.august.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.august.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.august.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.august.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.august.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.august.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.august.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.august.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.august.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.august.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.august.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.august.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.august.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.august.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.august.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.august.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.august.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.august.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.august.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.august.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.august.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.august.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.august.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.august.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.august.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.august.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.august.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.august.get(30).add(description);
+			if(daySelected.equals("31"))
+				calendar.august.get(31).add(description);
+		}
+		if(date.equals("09")) {
+			if(daySelected.equals("1"))
+				calendar.september.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.september.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.september.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.september.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.september.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.september.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.september.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.september.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.september.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.september.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.september.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.september.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.september.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.september.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.september.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.september.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.september.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.september.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.september.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.september.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.september.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.september.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.september.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.september.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.september.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.september.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.september.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.september.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.september.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.september.get(30).add(description);
+		}
+		if(date.equals("10")) {
+			if(daySelected.equals("1"))
+				calendar.october.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.october.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.october.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.october.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.october.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.october.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.october.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.october.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.october.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.october.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.october.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.october.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.october.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.october.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.october.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.october.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.october.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.october.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.october.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.october.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.october.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.october.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.october.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.october.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.october.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.october.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.october.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.october.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.october.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.october.get(30).add(description);
+			if(daySelected.equals("31"))
+				calendar.october.get(31).add(description);
+		}
+		if(date.equals("11")) {
+			if(daySelected.equals("1"))
+				calendar.november.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.november.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.november.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.november.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.november.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.november.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.november.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.november.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.november.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.november.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.november.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.november.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.november.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.november.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.november.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.november.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.november.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.november.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.november.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.november.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.november.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.november.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.november.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.november.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.november.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.november.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.november.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.november.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.november.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.november.get(30).add(description);
+		}
+		if(date.equals("12")) {
+			if(daySelected.equals("1"))
+				calendar.december.get(1).add(description);
+			if(daySelected.equals("2"))
+				calendar.december.get(2).add(description);
+			if(daySelected.equals("3"))
+				calendar.december.get(3).add(description);
+			if(daySelected.equals("4"))
+				calendar.december.get(4).add(description);
+			if(daySelected.equals("5"))
+				calendar.december.get(5).add(description);
+			if(daySelected.equals("6"))
+				calendar.december.get(6).add(description);
+			if(daySelected.equals("7"))
+				calendar.december.get(7).add(description);
+			if(daySelected.equals("8"))
+				calendar.december.get(8).add(description);
+			if(daySelected.equals("9"))
+				calendar.december.get(9).add(description);
+			if(daySelected.equals("10"))
+				calendar.december.get(10).add(description);
+			if(daySelected.equals("11"))
+				calendar.december.get(11).add(description);
+			if(daySelected.equals("12"))
+				calendar.december.get(12).add(description);
+			if(daySelected.equals("13"))
+				calendar.december.get(13).add(description);
+			if(daySelected.equals("14"))
+				calendar.december.get(14).add(description);
+			if(daySelected.equals("15"))
+				calendar.december.get(15).add(description);
+			if(daySelected.equals("16"))
+				calendar.december.get(16).add(description);
+			if(daySelected.equals("17"))
+				calendar.december.get(17).add(description);
+			if(daySelected.equals("18"))
+				calendar.december.get(18).add(description);
+			if(daySelected.equals("19"))
+				calendar.december.get(19).add(description);
+			if(daySelected.equals("20"))
+				calendar.december.get(20).add(description);
+			if(daySelected.equals("21"))
+				calendar.december.get(21).add(description);
+			if(daySelected.equals("22"))
+				calendar.december.get(22).add(description);
+			if(daySelected.equals("23"))
+				calendar.december.get(23).add(description);
+			if(daySelected.equals("24"))
+				calendar.december.get(24).add(description);
+			if(daySelected.equals("25"))
+				calendar.december.get(25).add(description);
+			if(daySelected.equals("26"))
+				calendar.december.get(26).add(description);
+			if(daySelected.equals("27"))
+				calendar.december.get(27).add(description);
+			if(daySelected.equals("28"))
+				calendar.december.get(28).add(description);
+			if(daySelected.equals("29"))
+				calendar.december.get(29).add(description);
+			if(daySelected.equals("30"))
+				calendar.december.get(30).add(description);
+			if(daySelected.equals("31"))
+				calendar.december.get(31).add(description);
+		}
+		
 		scan.close();
 		scan2.close();
 		scan3.close();
@@ -140,291 +909,1523 @@ public class Event {
 		System.out.print("\n|Starting at "+timeSelected +" for " +description.getTime() +" minute(s).");
 		System.out.print("\n|Category: " +description.getCategory());
 		System.out.print("\n___________________________________________________");
-		
-		saveEvent(description);
+	}
+
+	private void getEvents(Calendar calendar, String date, String daySelected) {
+		if(date.equals("1")) {
+			if(daySelected.equals("1"))
+				calendar.january.get(1);
+			if(daySelected.equals("2"))
+				calendar.january.get(2);
+			if(daySelected.equals("3"))
+				calendar.january.get(3);
+			if(daySelected.equals("4"))
+				calendar.january.get(4);
+			if(daySelected.equals("5"))
+				calendar.january.get(5);
+			if(daySelected.equals("6"))
+				calendar.january.get(6);
+			if(daySelected.equals("7"))
+				calendar.january.get(7);
+			if(daySelected.equals("8"))
+				calendar.january.get(8);
+			if(daySelected.equals("9"))
+				calendar.january.get(9);
+			if(daySelected.equals("10"))
+				calendar.january.get(10);
+			if(daySelected.equals("11"))
+				calendar.january.get(11);
+			if(daySelected.equals("12"))
+				calendar.january.get(12);
+			if(daySelected.equals("13"))
+				calendar.january.get(13);
+			if(daySelected.equals("14"))
+				calendar.january.get(14);
+			if(daySelected.equals("15"))
+				calendar.january.get(15);
+			if(daySelected.equals("16"))
+				calendar.january.get(16);
+			if(daySelected.equals("17"))
+				calendar.january.get(17);
+			if(daySelected.equals("18"))
+				calendar.january.get(18);
+			if(daySelected.equals("19"))
+				calendar.january.get(19);
+			if(daySelected.equals("20"))
+				calendar.january.get(20);
+			if(daySelected.equals("21"))
+				calendar.january.get(21);
+			if(daySelected.equals("22"))
+				calendar.january.get(22);
+			if(daySelected.equals("23"))
+				calendar.january.get(23);
+			if(daySelected.equals("24"))
+				calendar.january.get(24);
+			if(daySelected.equals("25"))
+				calendar.january.get(25);
+			if(daySelected.equals("26"))
+				calendar.january.get(26);
+			if(daySelected.equals("27"))
+				calendar.january.get(27);
+			if(daySelected.equals("28"))
+				calendar.january.get(28);
+			if(daySelected.equals("29"))
+				calendar.january.get(29);
+			if(daySelected.equals("30"))
+				calendar.january.get(30);
+			if(daySelected.equals("31"))
+				calendar.january.get(31);
+		}
+		if(date.equals("2")) {
+			if(daySelected.equals("1"))
+				calendar.feburary.get(1);
+			if(daySelected.equals("2"))
+				calendar.feburary.get(2);
+			if(daySelected.equals("3"))
+				calendar.feburary.get(3);
+			if(daySelected.equals("4"))
+				calendar.feburary.get(4);
+			if(daySelected.equals("5"))
+				calendar.feburary.get(5);
+			if(daySelected.equals("6"))
+				calendar.feburary.get(6);
+			if(daySelected.equals("7"))
+				calendar.feburary.get(7);
+			if(daySelected.equals("8"))
+				calendar.feburary.get(8);
+			if(daySelected.equals("9"))
+				calendar.feburary.get(9);
+			if(daySelected.equals("10"))
+				calendar.feburary.get(10);
+			if(daySelected.equals("11"))
+				calendar.feburary.get(11);
+			if(daySelected.equals("12"))
+				calendar.feburary.get(12);
+			if(daySelected.equals("13"))
+				calendar.feburary.get(13);
+			if(daySelected.equals("14"))
+				calendar.feburary.get(14);
+			if(daySelected.equals("15"))
+				calendar.feburary.get(15);
+			if(daySelected.equals("16"))
+				calendar.feburary.get(16);
+			if(daySelected.equals("17"))
+				calendar.feburary.get(17);
+			if(daySelected.equals("18"))
+				calendar.feburary.get(18);
+			if(daySelected.equals("19"))
+				calendar.feburary.get(19);
+			if(daySelected.equals("20"))
+				calendar.feburary.get(20);
+			if(daySelected.equals("21"))
+				calendar.feburary.get(21);
+			if(daySelected.equals("22"))
+				calendar.feburary.get(22);
+			if(daySelected.equals("23"))
+				calendar.feburary.get(23);
+			if(daySelected.equals("24"))
+				calendar.feburary.get(24);
+			if(daySelected.equals("25"))
+				calendar.feburary.get(25);
+			if(daySelected.equals("26"))
+				calendar.feburary.get(26);
+			if(daySelected.equals("27"))
+				calendar.feburary.get(27);
+			if(daySelected.equals("28"))
+				calendar.feburary.get(28);
+		}
+		if(date.equals("3")) {
+			if(daySelected.equals("1"))
+				calendar.march.get(1);
+			if(daySelected.equals("2"))
+				calendar.march.get(2);
+			if(daySelected.equals("3"))
+				calendar.march.get(3);
+			if(daySelected.equals("4"))
+				calendar.march.get(4);
+			if(daySelected.equals("5"))
+				calendar.march.get(5);
+			if(daySelected.equals("6"))
+				calendar.march.get(6);
+			if(daySelected.equals("7"))
+				calendar.march.get(7);
+			if(daySelected.equals("8"))
+				calendar.march.get(8);
+			if(daySelected.equals("9"))
+				calendar.march.get(9);
+			if(daySelected.equals("10"))
+				calendar.march.get(10);
+			if(daySelected.equals("11"))
+				calendar.march.get(11);
+			if(daySelected.equals("12"))
+				calendar.march.get(12);
+			if(daySelected.equals("13"))
+				calendar.march.get(13);
+			if(daySelected.equals("14"))
+				calendar.march.get(14);
+			if(daySelected.equals("15"))
+				calendar.march.get(15);
+			if(daySelected.equals("16"))
+				calendar.march.get(16);
+			if(daySelected.equals("17"))
+				calendar.march.get(17);
+			if(daySelected.equals("18"))
+				calendar.march.get(18);
+			if(daySelected.equals("19"))
+				calendar.march.get(19);
+			if(daySelected.equals("20"))
+				calendar.march.get(20);
+			if(daySelected.equals("21"))
+				calendar.march.get(21);
+			if(daySelected.equals("22"))
+				calendar.march.get(22);
+			if(daySelected.equals("23"))
+				calendar.march.get(23);
+			if(daySelected.equals("24"))
+				calendar.march.get(24);
+			if(daySelected.equals("25"))
+				calendar.march.get(25);
+			if(daySelected.equals("26"))
+				calendar.march.get(26);
+			if(daySelected.equals("27"))
+				calendar.march.get(27);
+			if(daySelected.equals("28"))
+				calendar.march.get(28);
+			if(daySelected.equals("29"))
+				calendar.march.get(29);
+			if(daySelected.equals("30"))
+				calendar.march.get(30);
+			if(daySelected.equals("31"))
+				calendar.march.get(31);
+		}
+		if(date.equals("4")) {
+			if(daySelected.equals("1"))
+				calendar.april.get(1);
+			if(daySelected.equals("2"))
+				calendar.april.get(2);
+			if(daySelected.equals("3"))
+				calendar.april.get(3);
+			if(daySelected.equals("4"))
+				calendar.april.get(4);
+			if(daySelected.equals("5"))
+				calendar.april.get(5);
+			if(daySelected.equals("6"))
+				calendar.april.get(6);
+			if(daySelected.equals("7"))
+				calendar.april.get(7);
+			if(daySelected.equals("8"))
+				calendar.april.get(8);
+			if(daySelected.equals("9"))
+				calendar.april.get(9);
+			if(daySelected.equals("10"))
+				calendar.april.get(10);
+			if(daySelected.equals("11"))
+				calendar.april.get(11);
+			if(daySelected.equals("12"))
+				calendar.april.get(12);
+			if(daySelected.equals("13"))
+				calendar.april.get(13);
+			if(daySelected.equals("14"))
+				calendar.april.get(14);
+			if(daySelected.equals("15"))
+				calendar.april.get(15);
+			if(daySelected.equals("16"))
+				calendar.april.get(16);
+			if(daySelected.equals("17"))
+				calendar.april.get(17);
+			if(daySelected.equals("18"))
+				calendar.april.get(18);
+			if(daySelected.equals("19"))
+				calendar.april.get(19);
+			if(daySelected.equals("20"))
+				calendar.april.get(20);
+			if(daySelected.equals("21"))
+				calendar.april.get(21);
+			if(daySelected.equals("22"))
+				calendar.april.get(22);
+			if(daySelected.equals("23"))
+				calendar.april.get(23);
+			if(daySelected.equals("24"))
+				calendar.april.get(24);
+			if(daySelected.equals("25"))
+				calendar.april.get(25);
+			if(daySelected.equals("26"))
+				calendar.april.get(26);
+			if(daySelected.equals("27"))
+				calendar.april.get(27);
+			if(daySelected.equals("28"))
+				calendar.april.get(28);
+			if(daySelected.equals("29"))
+				calendar.april.get(29);
+			if(daySelected.equals("30"))
+				calendar.april.get(30);
+		}
+		if(date.equals("5")) {
+			if(daySelected.equals("1"))
+				calendar.may.get(1);
+			if(daySelected.equals("2"))
+				calendar.may.get(2);
+			if(daySelected.equals("3"))
+				calendar.may.get(3);
+			if(daySelected.equals("4"))
+				calendar.may.get(4);
+			if(daySelected.equals("5"))
+				calendar.may.get(5);
+			if(daySelected.equals("6"))
+				calendar.may.get(6);
+			if(daySelected.equals("7"))
+				calendar.may.get(7);
+			if(daySelected.equals("8"))
+				calendar.may.get(8);
+			if(daySelected.equals("9"))
+				calendar.may.get(9);
+			if(daySelected.equals("10"))
+				calendar.may.get(10);
+			if(daySelected.equals("11"))
+				calendar.may.get(11);
+			if(daySelected.equals("12"))
+				calendar.may.get(12);
+			if(daySelected.equals("13"))
+				calendar.may.get(13);
+			if(daySelected.equals("14"))
+				calendar.may.get(14);
+			if(daySelected.equals("15"))
+				calendar.may.get(15);
+			if(daySelected.equals("16"))
+				calendar.may.get(16);
+			if(daySelected.equals("17"))
+				calendar.may.get(17);
+			if(daySelected.equals("18"))
+				calendar.may.get(18);
+			if(daySelected.equals("19"))
+				calendar.may.get(19);
+			if(daySelected.equals("20"))
+				calendar.may.get(20);
+			if(daySelected.equals("21"))
+				calendar.may.get(21);
+			if(daySelected.equals("22"))
+				calendar.may.get(22);
+			if(daySelected.equals("23"))
+				calendar.may.get(23);
+			if(daySelected.equals("24"))
+				calendar.may.get(24);
+			if(daySelected.equals("25"))
+				calendar.may.get(25);
+			if(daySelected.equals("26"))
+				calendar.may.get(26);
+			if(daySelected.equals("27"))
+				calendar.may.get(27);
+			if(daySelected.equals("28"))
+				calendar.may.get(28);
+			if(daySelected.equals("29"))
+				calendar.may.get(29);
+			if(daySelected.equals("30"))
+				calendar.may.get(30);
+			if(daySelected.equals("31"))
+				calendar.may.get(31);
+		}
+		if(date.equals("6")) {
+			if(daySelected.equals("1"))
+				calendar.june.get(1);
+			if(daySelected.equals("2"))
+				calendar.june.get(2);
+			if(daySelected.equals("3"))
+				calendar.june.get(3);
+			if(daySelected.equals("4"))
+				calendar.june.get(4);
+			if(daySelected.equals("5"))
+				calendar.june.get(5);
+			if(daySelected.equals("6"))
+				calendar.june.get(6);
+			if(daySelected.equals("7"))
+				calendar.june.get(7);
+			if(daySelected.equals("8"))
+				calendar.june.get(8);
+			if(daySelected.equals("9"))
+				calendar.june.get(9);
+			if(daySelected.equals("10"))
+				calendar.june.get(10);
+			if(daySelected.equals("11"))
+				calendar.june.get(11);
+			if(daySelected.equals("12"))
+				calendar.june.get(12);
+			if(daySelected.equals("13"))
+				calendar.june.get(13);
+			if(daySelected.equals("14"))
+				calendar.june.get(14);
+			if(daySelected.equals("15"))
+				calendar.june.get(15);
+			if(daySelected.equals("16"))
+				calendar.june.get(16);
+			if(daySelected.equals("17"))
+				calendar.june.get(17);
+			if(daySelected.equals("18"))
+				calendar.june.get(18);
+			if(daySelected.equals("19"))
+				calendar.june.get(19);
+			if(daySelected.equals("20"))
+				calendar.june.get(20);
+			if(daySelected.equals("21"))
+				calendar.june.get(21);
+			if(daySelected.equals("22"))
+				calendar.june.get(22);
+			if(daySelected.equals("23"))
+				calendar.june.get(23);
+			if(daySelected.equals("24"))
+				calendar.june.get(24);
+			if(daySelected.equals("25"))
+				calendar.june.get(25);
+			if(daySelected.equals("26"))
+				calendar.june.get(26);
+			if(daySelected.equals("27"))
+				calendar.june.get(27);
+			if(daySelected.equals("28"))
+				calendar.june.get(28);
+			if(daySelected.equals("29"))
+				calendar.june.get(29);
+			if(daySelected.equals("30"))
+				calendar.june.get(30);
+		}
+		if(date.equals("7")) {
+			if(daySelected.equals("1"))
+				calendar.july.get(1);
+			if(daySelected.equals("2"))
+				calendar.july.get(2);
+			if(daySelected.equals("3"))
+				calendar.july.get(3);
+			if(daySelected.equals("4"))
+				calendar.july.get(4);
+			if(daySelected.equals("5"))
+				calendar.july.get(5);
+			if(daySelected.equals("6"))
+				calendar.july.get(6);
+			if(daySelected.equals("7"))
+				calendar.july.get(7);
+			if(daySelected.equals("8"))
+				calendar.july.get(8);
+			if(daySelected.equals("9"))
+				calendar.july.get(9);
+			if(daySelected.equals("10"))
+				calendar.july.get(10);
+			if(daySelected.equals("11"))
+				calendar.july.get(11);
+			if(daySelected.equals("12"))
+				calendar.july.get(12);
+			if(daySelected.equals("13"))
+				calendar.july.get(13);
+			if(daySelected.equals("14"))
+				calendar.july.get(14);
+			if(daySelected.equals("15"))
+				calendar.july.get(15);
+			if(daySelected.equals("16"))
+				calendar.july.get(16);
+			if(daySelected.equals("17"))
+				calendar.july.get(17);
+			if(daySelected.equals("18"))
+				calendar.july.get(18);
+			if(daySelected.equals("19"))
+				calendar.july.get(19);
+			if(daySelected.equals("20"))
+				calendar.july.get(20);
+			if(daySelected.equals("21"))
+				calendar.july.get(21);
+			if(daySelected.equals("22"))
+				calendar.july.get(22);
+			if(daySelected.equals("23"))
+				calendar.july.get(23);
+			if(daySelected.equals("24"))
+				calendar.july.get(24);
+			if(daySelected.equals("25"))
+				calendar.july.get(25);
+			if(daySelected.equals("26"))
+				calendar.july.get(26);
+			if(daySelected.equals("27"))
+				calendar.july.get(27);
+			if(daySelected.equals("28"))
+				calendar.july.get(28);
+			if(daySelected.equals("29"))
+				calendar.july.get(29);
+			if(daySelected.equals("30"))
+				calendar.july.get(30);
+			if(daySelected.equals("31"))
+				calendar.july.get(31);
+		}
+		if(date.equals("8")) {
+			if(daySelected.equals("1"))
+				calendar.august.get(1);
+			if(daySelected.equals("2"))
+				calendar.august.get(2);
+			if(daySelected.equals("3"))
+				calendar.august.get(3);
+			if(daySelected.equals("4"))
+				calendar.august.get(4);
+			if(daySelected.equals("5"))
+				calendar.august.get(5);
+			if(daySelected.equals("6"))
+				calendar.august.get(6);
+			if(daySelected.equals("7"))
+				calendar.august.get(7);
+			if(daySelected.equals("8"))
+				calendar.august.get(8);
+			if(daySelected.equals("9"))
+				calendar.august.get(9);
+			if(daySelected.equals("10"))
+				calendar.august.get(10);
+			if(daySelected.equals("11"))
+				calendar.august.get(11);
+			if(daySelected.equals("12"))
+				calendar.august.get(12);
+			if(daySelected.equals("13"))
+				calendar.august.get(13);
+			if(daySelected.equals("14"))
+				calendar.august.get(14);
+			if(daySelected.equals("15"))
+				calendar.august.get(15);
+			if(daySelected.equals("16"))
+				calendar.august.get(16);
+			if(daySelected.equals("17"))
+				calendar.august.get(17);
+			if(daySelected.equals("18"))
+				calendar.august.get(18);
+			if(daySelected.equals("19"))
+				calendar.august.get(19);
+			if(daySelected.equals("20"))
+				calendar.august.get(20);
+			if(daySelected.equals("21"))
+				calendar.august.get(21);
+			if(daySelected.equals("22"))
+				calendar.august.get(22);
+			if(daySelected.equals("23"))
+				calendar.august.get(23);
+			if(daySelected.equals("24"))
+				calendar.august.get(24);
+			if(daySelected.equals("25"))
+				calendar.august.get(25);
+			if(daySelected.equals("26"))
+				calendar.august.get(26);
+			if(daySelected.equals("27"))
+				calendar.august.get(27);
+			if(daySelected.equals("28"))
+				calendar.august.get(28);
+			if(daySelected.equals("29"))
+				calendar.august.get(29);
+			if(daySelected.equals("30"))
+				calendar.august.get(30);
+			if(daySelected.equals("31"))
+				calendar.august.get(31);
+		}
+		if(date.equals("9")) {
+			if(daySelected.equals("1"))
+				calendar.september.get(1);
+			if(daySelected.equals("2"))
+				calendar.september.get(2);
+			if(daySelected.equals("3"))
+				calendar.september.get(3);
+			if(daySelected.equals("4"))
+				calendar.september.get(4);
+			if(daySelected.equals("5"))
+				calendar.september.get(5);
+			if(daySelected.equals("6"))
+				calendar.september.get(6);
+			if(daySelected.equals("7"))
+				calendar.september.get(7);
+			if(daySelected.equals("8"))
+				calendar.september.get(8);
+			if(daySelected.equals("9"))
+				calendar.september.get(9);
+			if(daySelected.equals("10"))
+				calendar.september.get(10);
+			if(daySelected.equals("11"))
+				calendar.september.get(11);
+			if(daySelected.equals("12"))
+				calendar.september.get(12);
+			if(daySelected.equals("13"))
+				calendar.september.get(13);
+			if(daySelected.equals("14"))
+				calendar.september.get(14);
+			if(daySelected.equals("15"))
+				calendar.september.get(15);
+			if(daySelected.equals("16"))
+				calendar.september.get(16);
+			if(daySelected.equals("17"))
+				calendar.september.get(17);
+			if(daySelected.equals("18"))
+				calendar.september.get(18);
+			if(daySelected.equals("19"))
+				calendar.september.get(19);
+			if(daySelected.equals("20"))
+				calendar.september.get(20);
+			if(daySelected.equals("21"))
+				calendar.september.get(21);
+			if(daySelected.equals("22"))
+				calendar.september.get(22);
+			if(daySelected.equals("23"))
+				calendar.september.get(23);
+			if(daySelected.equals("24"))
+				calendar.september.get(24);
+			if(daySelected.equals("25"))
+				calendar.september.get(25);
+			if(daySelected.equals("26"))
+				calendar.september.get(26);
+			if(daySelected.equals("27"))
+				calendar.september.get(27);
+			if(daySelected.equals("28"))
+				calendar.september.get(28);
+			if(daySelected.equals("29"))
+				calendar.september.get(29);
+			if(daySelected.equals("30"))
+				calendar.september.get(30);
+		}
+		if(date.equals("10")) {
+			if(daySelected.equals("1"))
+				calendar.october.get(1);
+			if(daySelected.equals("2"))
+				calendar.october.get(2);
+			if(daySelected.equals("3"))
+				calendar.october.get(3);
+			if(daySelected.equals("4"))
+				calendar.october.get(4);
+			if(daySelected.equals("5"))
+				calendar.october.get(5);
+			if(daySelected.equals("6"))
+				calendar.october.get(6);
+			if(daySelected.equals("7"))
+				calendar.october.get(7);
+			if(daySelected.equals("8"))
+				calendar.october.get(8);
+			if(daySelected.equals("9"))
+				calendar.october.get(9);
+			if(daySelected.equals("10"))
+				calendar.october.get(10);
+			if(daySelected.equals("11"))
+				calendar.october.get(11);
+			if(daySelected.equals("12"))
+				calendar.october.get(12);
+			if(daySelected.equals("13"))
+				calendar.october.get(13);
+			if(daySelected.equals("14"))
+				calendar.october.get(14);
+			if(daySelected.equals("15"))
+				calendar.october.get(15);
+			if(daySelected.equals("16"))
+				calendar.october.get(16);
+			if(daySelected.equals("17"))
+				calendar.october.get(17);
+			if(daySelected.equals("18"))
+				calendar.october.get(18);
+			if(daySelected.equals("19"))
+				calendar.october.get(19);
+			if(daySelected.equals("20"))
+				calendar.october.get(20);
+			if(daySelected.equals("21"))
+				calendar.october.get(21);
+			if(daySelected.equals("22"))
+				calendar.october.get(22);
+			if(daySelected.equals("23"))
+				calendar.october.get(23);
+			if(daySelected.equals("24"))
+				calendar.october.get(24);
+			if(daySelected.equals("25"))
+				calendar.october.get(25);
+			if(daySelected.equals("26"))
+				calendar.october.get(26);
+			if(daySelected.equals("27"))
+				calendar.october.get(27);
+			if(daySelected.equals("28"))
+				calendar.october.get(28);
+			if(daySelected.equals("29"))
+				calendar.october.get(29);
+			if(daySelected.equals("30"))
+				calendar.october.get(30);
+			if(daySelected.equals("31"))
+				calendar.october.get(31);
+		}
+		if(date.equals("11")) {
+			if(daySelected.equals("1"))
+				calendar.november.get(1);
+			if(daySelected.equals("2"))
+				calendar.november.get(2);
+			if(daySelected.equals("3"))
+				calendar.november.get(3);
+			if(daySelected.equals("4"))
+				calendar.november.get(4);
+			if(daySelected.equals("5"))
+				calendar.november.get(5);
+			if(daySelected.equals("6"))
+				calendar.november.get(6);
+			if(daySelected.equals("7"))
+				calendar.november.get(7);
+			if(daySelected.equals("8"))
+				calendar.november.get(8);
+			if(daySelected.equals("9"))
+				calendar.november.get(9); 
+			if(daySelected.equals("10"))
+				calendar.november.get(10);
+			if(daySelected.equals("11"))
+				calendar.november.get(11);
+			if(daySelected.equals("12"))
+				calendar.november.get(12);
+			if(daySelected.equals("13"))
+				calendar.november.get(13);
+			if(daySelected.equals("14"))
+				calendar.november.get(14);
+			if(daySelected.equals("15"))
+				calendar.november.get(15);
+			if(daySelected.equals("16"))
+				calendar.november.get(16);
+			if(daySelected.equals("17"))
+				calendar.november.get(17);
+			if(daySelected.equals("18"))
+				calendar.november.get(18);
+			if(daySelected.equals("19"))
+				calendar.november.get(19);
+			if(daySelected.equals("20"))
+				calendar.november.get(20);
+			if(daySelected.equals("21"))
+				calendar.november.get(21);
+			if(daySelected.equals("22"))
+				calendar.november.get(22);
+			if(daySelected.equals("23"))
+				calendar.november.get(23);
+			if(daySelected.equals("24"))
+				calendar.november.get(24);
+			if(daySelected.equals("25"))
+				calendar.november.get(25);
+			if(daySelected.equals("26"))
+				calendar.november.get(26);
+			if(daySelected.equals("27"))
+				calendar.november.get(27);
+			if(daySelected.equals("28"))
+				calendar.november.get(28);
+			if(daySelected.equals("29"))
+				calendar.november.get(29);
+			if(daySelected.equals("30"))
+				calendar.november.get(30);
+		}
+		if(date.equals("12")) {
+			if(daySelected.equals("1"))
+				calendar.december.get(1);
+			if(daySelected.equals("2"))
+				calendar.december.get(2);
+			if(daySelected.equals("3"))
+				calendar.december.get(3);
+			if(daySelected.equals("4"))
+				calendar.december.get(4);
+			if(daySelected.equals("5"))
+				calendar.december.get(5);
+			if(daySelected.equals("6"))
+				calendar.december.get(6);
+			if(daySelected.equals("7"))
+				calendar.december.get(7);
+			if(daySelected.equals("8"))
+				calendar.december.get(8);
+			if(daySelected.equals("9"))
+				calendar.december.get(9);
+			if(daySelected.equals("10"))
+				calendar.december.get(10);
+			if(daySelected.equals("11"))
+				calendar.december.get(11);
+			if(daySelected.equals("12"))
+				calendar.december.get(12);
+			if(daySelected.equals("13"))
+				calendar.december.get(13);
+			if(daySelected.equals("14"))
+				calendar.december.get(14);
+			if(daySelected.equals("15"))
+				calendar.december.get(15);
+			if(daySelected.equals("16"))
+				calendar.december.get(16);
+			if(daySelected.equals("17"))
+				calendar.december.get(17);
+			if(daySelected.equals("18"))
+				calendar.december.get(18);
+			if(daySelected.equals("19"))
+				calendar.december.get(19);
+			if(daySelected.equals("20"))
+				calendar.december.get(20);
+			if(daySelected.equals("21"))
+				calendar.december.get(21);
+			if(daySelected.equals("22"))
+				calendar.december.get(22);
+			if(daySelected.equals("23"))
+				calendar.december.get(23);
+			if(daySelected.equals("24"))
+				calendar.december.get(24);
+			if(daySelected.equals("25"))
+				calendar.december.get(25);
+			if(daySelected.equals("26"))
+				calendar.december.get(26);
+			if(daySelected.equals("27"))
+				calendar.december.get(27);
+			if(daySelected.equals("28"))
+				calendar.december.get(28);
+			if(daySelected.equals("29"))
+				calendar.december.get(29);
+			if(daySelected.equals("30"))
+				calendar.december.get(30);
+			if(daySelected.equals("31"))
+				calendar.december.get(31);
+		}
 	}
 	
-	private void saveEvent(Event description) {
-		try {
-			File saveEvent = new File("eventList.txt");
-			if(!saveEvent.exists())
-				saveEvent.createNewFile();
-			
-			FileWriter fw = new FileWriter(saveEvent.getName(), true);
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write("Title: " +description.getTitle() 
-					+", Description: " +description.getDesc() 
-					+", Duration: " +description.getTime() +" min(s)"
-					+", Category: " +description.getCategory() +"\n");
-			bw.close();
+	private void deleteEvent(Calendar calendar, String date, String input) {
+		if(date.equals("01")) {
+			if(input.equals("1"))
+				calendar.january.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.january.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.january.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.january.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.january.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.january.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.january.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.january.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.january.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.january.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.january.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.january.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.january.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.january.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.january.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.january.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.january.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.january.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.january.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.january.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.january.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.january.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.january.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.january.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.january.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.january.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.january.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.january.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.january.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.january.get(30).remove(30);
+			if(input.equals("31"))
+				calendar.january.get(31).remove(31);
 		}
-		catch(IOException e) {
-			System.out.print("Error occured");
-			e.printStackTrace();
+		if(date.equals("02")) {
+			if(input.equals("1"))
+				calendar.feburary.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.feburary.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.feburary.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.feburary.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.feburary.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.feburary.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.feburary.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.feburary.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.feburary.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.feburary.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.feburary.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.feburary.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.feburary.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.feburary.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.feburary.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.feburary.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.feburary.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.feburary.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.feburary.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.feburary.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.feburary.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.feburary.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.feburary.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.feburary.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.feburary.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.feburary.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.feburary.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.feburary.get(28).remove(28);
 		}
-	}
-	
-	private void getEventList() {
-		try {
-			File events = new File("eventList.txt");
-			Scanner scan = new Scanner(events);
-			String[] data = new String[100];
-			int i = 0;
-			while(scan.hasNextLine()) {
-				data[i] = scan.nextLine();
-				System.out.println(i +".. " +data[i]);
-				i++;
-			}
-			scan.close();
+		if(date.equals("03")) {
+			if(input.equals("1"))
+				calendar.march.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.march.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.march.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.march.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.march.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.march.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.march.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.march.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.march.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.march.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.march.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.march.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.march.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.march.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.march.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.march.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.march.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.march.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.march.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.march.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.march.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.march.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.march.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.march.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.march.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.march.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.march.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.march.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.march.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.march.get(30).remove(30);
+			if(input.equals("31"))
+				calendar.march.get(31).remove(31);
 		}
-		catch(FileNotFoundException e) {
-			e.printStackTrace();
+		if(date.equals("04")) {
+			if(input.equals("1"))
+				calendar.april.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.april.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.april.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.april.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.april.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.april.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.april.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.april.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.april.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.april.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.april.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.april.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.april.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.april.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.april.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.april.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.april.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.april.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.april.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.april.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.april.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.april.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.april.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.april.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.april.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.april.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.april.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.april.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.april.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.april.get(30).remove(30);
+		}
+		if(date.equals("05")) {
+			if(input.equals("1"))
+				calendar.may.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.may.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.may.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.may.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.may.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.may.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.may.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.may.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.may.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.may.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.may.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.may.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.may.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.may.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.may.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.may.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.may.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.may.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.may.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.may.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.may.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.may.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.may.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.may.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.may.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.may.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.may.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.may.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.may.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.may.get(30).remove(30);
+			if(input.equals("31"))
+				calendar.may.get(31).remove(31);
+		}
+		if(date.equals("06")) {
+			if(input.equals("1"))
+				calendar.june.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.june.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.june.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.june.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.june.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.june.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.june.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.june.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.june.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.june.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.june.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.june.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.june.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.june.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.june.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.june.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.june.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.june.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.june.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.june.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.june.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.june.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.june.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.june.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.june.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.june.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.june.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.june.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.june.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.june.get(30).remove(30);
+		}
+		if(date.equals("07")) {
+			if(input.equals("1"))
+				calendar.july.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.july.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.july.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.july.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.july.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.july.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.july.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.july.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.july.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.july.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.july.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.july.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.july.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.july.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.july.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.july.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.july.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.july.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.july.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.july.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.july.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.july.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.july.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.july.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.july.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.july.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.july.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.july.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.july.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.july.get(30).remove(30);
+			if(input.equals("31"))
+				calendar.july.get(31).remove(31);
+		}
+		if(date.equals("08")) {
+			if(input.equals("1"))
+				calendar.august.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.august.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.august.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.august.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.august.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.august.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.august.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.august.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.august.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.august.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.august.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.august.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.august.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.august.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.august.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.august.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.august.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.august.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.august.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.august.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.august.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.august.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.august.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.august.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.august.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.august.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.august.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.august.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.august.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.august.get(30).remove(30);
+			if(input.equals("31"))
+				calendar.august.get(31).remove(31);
+		}
+		if(date.equals("09")) {
+			if(input.equals("1"))
+				calendar.september.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.september.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.september.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.september.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.september.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.september.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.september.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.september.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.september.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.september.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.september.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.september.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.september.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.september.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.september.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.september.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.september.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.september.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.september.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.september.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.september.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.september.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.september.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.september.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.september.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.september.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.september.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.september.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.september.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.september.get(30).remove(30);
+		}
+		if(date.equals("10")) {
+			if(input.equals("1"))
+				calendar.october.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.october.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.october.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.october.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.october.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.october.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.october.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.october.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.october.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.october.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.october.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.october.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.october.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.october.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.october.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.october.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.october.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.october.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.october.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.october.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.october.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.october.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.october.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.october.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.october.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.october.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.october.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.october.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.october.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.october.get(30).remove(30);
+			if(input.equals("31"))
+				calendar.october.get(31).remove(31);
+		}
+		if(date.equals("11")) {
+			if(input.equals("1"))
+				calendar.november.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.november.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.november.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.november.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.november.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.november.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.november.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.november.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.november.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.november.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.november.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.november.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.november.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.november.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.november.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.november.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.november.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.november.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.november.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.november.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.november.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.november.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.november.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.november.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.november.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.november.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.november.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.november.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.november.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.november.get(30).remove(30);
+		}
+		if(date.equals("12")) {
+			if(input.equals("1"))
+				calendar.december.get(1).remove(1);
+			if(input.equals("2"))
+				calendar.december.get(2).remove(2);
+			if(input.equals("3"))
+				calendar.december.get(3).remove(3);
+			if(input.equals("4"))
+				calendar.december.get(4).remove(4);
+			if(input.equals("5"))
+				calendar.december.get(5).remove(5);
+			if(input.equals("6"))
+				calendar.december.get(6).remove(6);
+			if(input.equals("7"))
+				calendar.december.get(7).remove(7);
+			if(input.equals("8"))
+				calendar.december.get(8).remove(8);
+			if(input.equals("9"))
+				calendar.december.get(9).remove(9);
+			if(input.equals("10"))
+				calendar.december.get(10).remove(10);
+			if(input.equals("11"))
+				calendar.december.get(11).remove(11);
+			if(input.equals("12"))
+				calendar.december.get(12).remove(12);
+			if(input.equals("13"))
+				calendar.december.get(13).remove(13);
+			if(input.equals("14"))
+				calendar.december.get(14).remove(14);
+			if(input.equals("15"))
+				calendar.december.get(15).remove(15);
+			if(input.equals("16"))
+				calendar.december.get(16).remove(16);
+			if(input.equals("17"))
+				calendar.december.get(17).remove(17);
+			if(input.equals("18"))
+				calendar.december.get(18).remove(18);
+			if(input.equals("19"))
+				calendar.december.get(19).remove(19);
+			if(input.equals("20"))
+				calendar.december.get(20).remove(20);
+			if(input.equals("21"))
+				calendar.december.get(21).remove(21);
+			if(input.equals("22"))
+				calendar.december.get(22).remove(22);
+			if(input.equals("23"))
+				calendar.december.get(23).remove(23);
+			if(input.equals("24"))
+				calendar.december.get(24).remove(24);
+			if(input.equals("25"))
+				calendar.december.get(25).remove(25);
+			if(input.equals("26"))
+				calendar.december.get(26).remove(26);
+			if(input.equals("27"))
+				calendar.december.get(27).remove(27);
+			if(input.equals("28"))
+				calendar.december.get(28).remove(28);
+			if(input.equals("29"))
+				calendar.december.get(29).remove(29);
+			if(input.equals("30"))
+				calendar.december.get(30).remove(30);
+			if(input.equals("31"))
+				calendar.december.get(31).remove(31);
 		}
 	}
 
-	private void fixInput(String input, Event details, String decision) {
-		int fixed = 0;
-		if(input.equals("1")) {
-			fixed = 1;
-		}else if(input.equals("2")) {
-			fixed = 2;
-		}else if(input.equals("3")) {
-			fixed = 3;
-		}else if(input.equals("4")) {
-			fixed = 4;
-		}else if(input.equals("5")) {
-			fixed = 5;
-		}else if(input.equals("6")) {
-			fixed = 6;
-		}else if(input.equals("7")) {
-			fixed = 7;
-		}else if(input.equals("8")) {
-			fixed = 8;
-		}else if(input.equals("9")) {
-			fixed = 9;
-		}else if(input.equals("10")) {
-			fixed = 10;
-		}else if(input.equals("11")) {
-			fixed = 11;
-		}else if(input.equals("12")) {
-			fixed = 12;
-		}else if(input.equals("13")) {
-			fixed = 13;
-		}else if(input.equals("14")) {
-			fixed = 14;
-		}else if(input.equals("15")) {
-			fixed = 15;
-		}else if(input.equals("16")) {
-			fixed = 16;
-		}else if(input.equals("17")) {
-			fixed = 17;
-		}else if(input.equals("18")) {
-			fixed = 18;
-		}else if(input.equals("19")) {
-			fixed = 19;
-		}else if(input.equals("20")) {
-			fixed = 20;
-		}else if(input.equals("21")) {
-			fixed = 21;
-		}else if(input.equals("22")) {
-			fixed = 22;
-		}else if(input.equals("23")) {
-			fixed = 23;
-		}else if(input.equals("24")) {
-			fixed = 24;
-		}else if(input.equals("25")) {
-			fixed = 25;
-		}else if(input.equals("26")) {
-			fixed = 26;
-		}else if(input.equals("27")) {
-			fixed = 27;
-		}else if(input.equals("28")) {
-			fixed = 28;
-		}else if(input.equals("29")) {
-			fixed = 29;
-		}else if(input.equals("30")) {
-			fixed = 30;
-		}else if(input.equals("31")) {
-			fixed = 31;
-		}else if(input.equals("32")) {
-			fixed = 32;
-		}else if(input.equals("33")) {
-			fixed = 33;
-		}else if(input.equals("34")) {
-			fixed = 34;
-		}else if(input.equals("35")) {
-			fixed = 35;
-		}else if(input.equals("36")) {
-			fixed = 36;
-		}else if(input.equals("37")) {
-			fixed = 37;
-		}else if(input.equals("38")) {
-			fixed = 38;
-		}else if(input.equals("39")) {
-			fixed = 39;
-		}else if(input.equals("40")) {
-			fixed = 40;
-		}else if(input.equals("41")) {
-			fixed = 41;
-		}else if(input.equals("42")) {
-			fixed = 42;
-		}else if(input.equals("43")) {
-			fixed = 43;
-		}else if(input.equals("44")) {
-			fixed = 44;
-		}else if(input.equals("45")) {
-			fixed = 45;
-		}else if(input.equals("46")) {
-			fixed = 46;
-		}else if(input.equals("47")) {
-			fixed = 47;
-		}else if(input.equals("48")) {
-			fixed = 48;
-		}else if(input.equals("49")) {
-			fixed = 49;
-		}else if(input.equals("50")) {
-			fixed = 50;
-		}else if(input.equals("51")) {
-			fixed = 51;
-		}else if(input.equals("52")) {
-			fixed = 52;
-		}else if(input.equals("53")) {
-			fixed = 53;
-		}else if(input.equals("54")) {
-			fixed = 54;
-		}else if(input.equals("55")) {
-			fixed = 55;
-		}else if(input.equals("56")) {
-			fixed = 56;
-		}else if(input.equals("57")) {
-			fixed = 57;
-		}else if(input.equals("58")) {
-			fixed = 58;
-		}else if(input.equals("59")) {
-			fixed = 59;
-		}else if(input.equals("60")) {
-			fixed = 60;
-		}else if(input.equals("61")) {
-			fixed = 61;
-		}else if(input.equals("62")) {
-			fixed = 62;
-		}else if(input.equals("63")) {
-			fixed = 63;
-		}else if(input.equals("64")) {
-			fixed = 64;
-		}else if(input.equals("65")) {
-			fixed = 65;
-		}else if(input.equals("66")) {
-			fixed = 66;
-		}else if(input.equals("67")) {
-			fixed = 67;
-		}else if(input.equals("68")) {
-			fixed = 68;
-		}else if(input.equals("69")) {
-			fixed = 69;
-		}else if(input.equals("70")) {
-			fixed = 70;
-		}else if(input.equals("71")) {
-			fixed = 71;
-		}else if(input.equals("72")) {
-			fixed = 72;
-		}else if(input.equals("73")) {
-			fixed = 73;
-		}else if(input.equals("74")) {
-			fixed = 74;
-		}else if(input.equals("75")) {
-			fixed = 75;
-		}else if(input.equals("76")) {
-			fixed = 76;
-		}else if(input.equals("77")) {
-			fixed = 77;
-		}else if(input.equals("78")) {
-			fixed = 78;
-		}else if(input.equals("79")) {
-			fixed = 79;
-		}else if(input.equals("80")) {
-			fixed = 80;
-		}else if(input.equals("81")) {
-			fixed = 81;
-		}else if(input.equals("82")) {
-			fixed = 82;
-		}else if(input.equals("83")) {
-			fixed = 83;
-		}else if(input.equals("84")) {
-			fixed = 84;
-		}else if(input.equals("85")) {
-			fixed = 85;
-		}else if(input.equals("86")) {
-			fixed = 86;
-		}else if(input.equals("87")) {
-			fixed = 87;
-		}else if(input.equals("88")) {
-			fixed = 88;
-		}else if(input.equals("89")) {
-			fixed = 89;
-		}else if(input.equals("90")) {
-			fixed = 90;
-		}else if(input.equals("91")) {
-			fixed = 91;
-		}else if(input.equals("92")) {
-			fixed = 92;
-		}else if(input.equals("93")) {
-			fixed = 93;
-		}else if(input.equals("94")) {
-			fixed = 94;
-		}else if(input.equals("95")) {
-			fixed = 95;
-		}else if(input.equals("96")) {
-			fixed = 96;
-		}else if(input.equals("97")) {
-			fixed = 97;
-		}else if(input.equals("98")) {
-			fixed = 98;
-		}else if(input.equals("99")) {
-			fixed = 99;
-		}else if(input.equals("100")) {
-			fixed = 100;
-		}
-		
-		if(decision.equalsIgnoreCase("D")) {
-			deleteEvent(fixed);
-		}
-		if(decision.equalsIgnoreCase("E")) {
-			editEvent(fixed, details);
-		}
-		
-	}
-
-	private void deleteEvent(int input) {
-		try {
-			String filename = "eventList.txt";
-			Scanner scan = new Scanner(new File(filename));
-			String[] data = new String[100];
-			int i = 0;
-			while(scan.hasNextLine()) {
-				data[i] = scan.nextLine();
-				i++;
-			}
-
-			scan.close();
-			
-			data[input] = null;
-			FileWriter writer = new FileWriter(filename);
-			for(int j = 0; j < 100; j++) {
-				if(data[j]!= null) {
-					writer.append(data[j]);
-				}
-			}
-			writer.flush();
-			System.out.print("\nEvent deleted!");
-			writer.close();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private void eventDetails(String numb, String decision) {
+	private void editEvent(Calendar calendar, String date, String daySelected, String uInput) {
 		System.out.println("\nEditing event..");
 		
 		String input = "";
@@ -458,55 +2459,795 @@ public class Event {
 		
 		String input5 = "";
 		Scanner scan5 = new Scanner(System.in);
-		System.out.print("\nEvent category(optional): ");
-		input5 = scan5.nextLine();
+		System.out.print("\nDoes this event have a category?(Y/N): ");
+		while(scan5.hasNext()) {
+			input5 = scan5.next();
+			if(input5.equalsIgnoreCase("Y") || input5.equalsIgnoreCase("N"))
+				break;
+			System.out.print("\nDoes this event have a category?(Y/N): ");
+		}
 		
-		Event details = new Event(input, input2, input3, input4, input5);
+		Event details = new Event();
+		if(input5.equalsIgnoreCase("Y")) {
+			Category category = new Category();
+			details = new Event(input, input2, input3, input4, category);
+		}
+		if(input5.equalsIgnoreCase("N")) {
+			details = new Event(input, input2, input3, input4);
+		}
+		
+		if(date.equals("01")) {
+			if(uInput.equals("1"))
+				calendar.january.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.january.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.january.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.january.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.january.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.january.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.january.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.january.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.january.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.january.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.january.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.january.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.january.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.january.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.january.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.january.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.january.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.january.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.january.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.january.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.january.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.january.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.january.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.january.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.january.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.january.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.january.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.january.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.january.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.january.get(30).set(30, details);
+			if(uInput.equals("31"))
+				calendar.january.get(31).set(31, details);
+		}
+		if(date.equals("02")) {
+			if(uInput.equals("1"))
+				calendar.feburary.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.feburary.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.feburary.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.feburary.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.feburary.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.feburary.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.feburary.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.feburary.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.feburary.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.feburary.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.feburary.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.feburary.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.feburary.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.feburary.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.feburary.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.feburary.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.feburary.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.feburary.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.feburary.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.feburary.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.feburary.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.feburary.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.feburary.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.feburary.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.feburary.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.feburary.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.feburary.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.feburary.get(28).set(28, details);
+		}
+		if(date.equals("03")) {
+			if(uInput.equals("1"))
+				calendar.march.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.march.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.march.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.march.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.march.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.march.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.march.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.march.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.march.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.march.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.march.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.march.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.march.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.march.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.march.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.march.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.march.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.march.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.march.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.march.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.march.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.march.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.march.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.march.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.march.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.march.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.march.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.march.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.march.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.march.get(30).set(30, details);
+			if(uInput.equals("31"))
+				calendar.march.get(31).set(31, details);
+		}
+		if(date.equals("04")) {
+			if(uInput.equals("1"))
+				calendar.april.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.april.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.april.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.april.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.april.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.april.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.april.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.april.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.april.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.april.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.april.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.april.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.april.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.april.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.april.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.april.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.april.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.april.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.april.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.april.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.april.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.april.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.april.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.april.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.april.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.april.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.april.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.april.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.april.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.april.get(30).set(30, details);
+		}
+		if(date.equals("05")) {
+			if(uInput.equals("1"))
+				calendar.may.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.may.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.may.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.may.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.may.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.may.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.may.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.may.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.may.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.may.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.may.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.may.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.may.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.may.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.may.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.may.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.may.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.may.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.may.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.may.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.may.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.may.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.may.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.may.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.may.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.may.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.may.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.may.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.may.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.may.get(30).set(30, details);
+			if(uInput.equals("31"))
+				calendar.may.get(31).set(31, details);
+		}
+		if(date.equals("06")) {
+			if(uInput.equals("1"))
+				calendar.june.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.june.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.june.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.june.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.june.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.june.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.june.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.june.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.june.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.june.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.june.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.june.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.june.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.june.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.june.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.june.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.june.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.june.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.june.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.june.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.june.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.june.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.june.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.june.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.june.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.june.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.june.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.june.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.june.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.june.get(30).set(30, details);
+		}
+		if(date.equals("07")) {
+			if(uInput.equals("1"))
+				calendar.july.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.july.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.july.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.july.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.july.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.july.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.july.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.july.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.july.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.july.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.july.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.july.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.july.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.july.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.july.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.july.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.july.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.july.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.july.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.july.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.july.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.july.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.july.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.july.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.july.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.july.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.july.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.july.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.july.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.july.get(30).set(30, details);
+			if(uInput.equals("31"))
+				calendar.july.get(31).set(31, details);
+		}
+		if(date.equals("08")) {
+			if(uInput.equals("1"))
+				calendar.august.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.august.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.august.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.august.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.august.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.august.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.august.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.august.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.august.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.august.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.august.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.august.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.august.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.august.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.august.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.august.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.august.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.august.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.august.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.august.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.august.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.august.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.august.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.august.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.august.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.august.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.august.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.august.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.august.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.august.get(30).set(30, details);
+			if(uInput.equals("31"))
+				calendar.august.get(31).set(31, details);
+		}
+		if(date.equals("09")) {
+			if(uInput.equals("1"))
+				calendar.september.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.september.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.september.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.september.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.september.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.september.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.september.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.september.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.september.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.september.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.september.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.september.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.september.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.september.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.september.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.september.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.september.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.september.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.september.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.september.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.september.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.september.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.september.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.september.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.september.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.september.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.september.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.september.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.september.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.september.get(30).set(30, details);
+		}
+		if(date.equals("10")) {
+			if(uInput.equals("1"))
+				calendar.october.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.october.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.october.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.october.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.october.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.october.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.october.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.october.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.october.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.october.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.october.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.october.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.october.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.october.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.october.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.october.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.october.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.october.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.october.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.october.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.october.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.october.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.october.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.october.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.october.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.october.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.october.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.october.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.october.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.october.get(30).set(30, details);
+			if(uInput.equals("31"))
+				calendar.october.get(31).set(31, details);
+		}
+		if(date.equals("11")) {
+			if(uInput.equals("1"))
+				calendar.november.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.november.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.november.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.november.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.november.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.november.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.november.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.november.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.november.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.november.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.november.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.november.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.november.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.november.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.november.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.november.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.november.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.november.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.november.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.november.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.november.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.november.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.november.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.november.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.november.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.november.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.november.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.november.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.november.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.november.get(30).set(30, details);
+		}
+		if(date.equals("12")) {
+			if(uInput.equals("1"))
+				calendar.december.get(1).set(1, details);
+			if(uInput.equals("2"))
+				calendar.december.get(2).set(2, details);
+			if(uInput.equals("3"))
+				calendar.december.get(3).set(3, details);
+			if(uInput.equals("4"))
+				calendar.december.get(4).set(4, details);
+			if(uInput.equals("5"))
+				calendar.december.get(5).set(5, details);
+			if(uInput.equals("6"))
+				calendar.december.get(6).set(6, details);
+			if(uInput.equals("7"))
+				calendar.december.get(7).set(7, details);
+			if(uInput.equals("8"))
+				calendar.december.get(8).set(8, details);
+			if(uInput.equals("9"))
+				calendar.december.get(9).set(9, details);
+			if(uInput.equals("10"))
+				calendar.december.get(10).set(10, details);
+			if(uInput.equals("11"))
+				calendar.december.get(11).set(11, details);
+			if(uInput.equals("12"))
+				calendar.december.get(12).set(12, details);
+			if(uInput.equals("13"))
+				calendar.december.get(13).set(13, details);
+			if(uInput.equals("14"))
+				calendar.december.get(14).set(14, details);
+			if(uInput.equals("15"))
+				calendar.december.get(15).set(15, details);
+			if(uInput.equals("16"))
+				calendar.december.get(16).set(16, details);
+			if(uInput.equals("17"))
+				calendar.december.get(17).set(17, details);
+			if(uInput.equals("18"))
+				calendar.december.get(18).set(18, details);
+			if(uInput.equals("19"))
+				calendar.december.get(19).set(19, details);
+			if(uInput.equals("20"))
+				calendar.december.get(20).set(20, details);
+			if(uInput.equals("21"))
+				calendar.december.get(21).set(21, details);
+			if(uInput.equals("22"))
+				calendar.december.get(22).set(22, details);
+			if(uInput.equals("23"))
+				calendar.december.get(23).set(23, details);
+			if(uInput.equals("24"))
+				calendar.december.get(24).set(24, details);
+			if(uInput.equals("25"))
+				calendar.december.get(25).set(25, details);
+			if(uInput.equals("26"))
+				calendar.december.get(26).set(26, details);
+			if(uInput.equals("27"))
+				calendar.december.get(27).set(27, details);
+			if(uInput.equals("28"))
+				calendar.december.get(28).set(28, details);
+			if(uInput.equals("29"))
+				calendar.december.get(29).set(29, details);
+			if(uInput.equals("30"))
+				calendar.december.get(30).set(30, details);
+			if(uInput.equals("31"))
+				calendar.december.get(31).set(31, details);
+		}
 		
 		scan1.close();
 		scan2.close();
 		scan3.close();
 		scan4.close();
 		scan5.close();
-		fixInput(numb, details, decision);
-	}
-
-	private void editEvent(int input, Event details) {
-		try {
-			String filename = "eventList.txt";
-			Scanner scan = new Scanner(new File(filename));
-			String[] data = new String[100];
-			int i = 0;
-			while(scan.hasNextLine()) {
-				data[i] = scan.nextLine();
-				i++;
-			}
-
-			scan.close();
-			
-			String newline = "Title: " +details.getTitle() 
-			+", Description: " +details.getDesc() 
-			+", Duration: " +details.getTime() +" min(s)"
-			+", Category: " +details.getCategory() +"\n";
-			
-			data[input] = newline;
-			FileWriter writer = new FileWriter(filename);
-			for(int j = 0; j < 100; j++) {
-				if(data[j]!= null) {
-					writer.append(data[j]);
-				}
-			}
-			writer.flush();
-			
-			System.out.print("\nEvent edited!");
-			writer.close();
-		}
-		catch(IOException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public void main(String[] args) {
+		Calendar calendar = new Calendar();
+		
+		MonthDay month = MonthDay.now();
+
+		String str = month.toString();
+		String[] date = str.split("-");
+		
+		String daySelected = null;
+		
 		Scanner scan = new Scanner(System.in);
 		System.out.print("\nWould you like to create, delete or edit an Event?(C/D/E): ");
 		String decision = "";
@@ -518,14 +3259,8 @@ public class Event {
 		}
 		
 		if(decision.equalsIgnoreCase("C")) {
-			MonthDay month = MonthDay.now();
-
-			String str = month.toString();
-			String[] date = str.split("-");
-			
 			System.out.print("\n\nPick a day to create an event(1-"+Days(date) +"): ");
 			Scanner scan1 = new Scanner(System.in);
-			String daySelected = null;
 			while(scan1.hasNext()) {
 				daySelected = scan1.next();
 				if(daySelected.equals("1") || daySelected.equals("2") || daySelected.equals("3") ||
@@ -567,8 +3302,7 @@ public class Event {
 			
 			System.out.print("Creating event for " +timeSelected +": \n");
 			//create the event at the time slot
-			Event newEvent = new Event();
-			newEvent.createEvent(timeSelected);
+			createEvent(timeSelected, daySelected, date[2], calendar);
 			
 			scan1.close();
 			scan2.close();
@@ -576,7 +3310,7 @@ public class Event {
 		
 		if(decision.equalsIgnoreCase("D")) {
 			System.out.println("\nWhich event would you like to delete?(integer)");
-			getEventList();
+			getEvents(calendar, date[2], daySelected);
 			System.out.print(">> ");
 			
 			Scanner scan3 = new Scanner(System.in);
@@ -584,19 +3318,18 @@ public class Event {
 			while(!scan3.hasNextInt()) {
 				scan3.next();
 				System.out.println("\nWhich event would you like to delete?(integer)");
-				getEventList();
+				getEvents(calendar, date[2], daySelected);
 				System.out.print(">> ");
 			}
 			input = scan3.next();
 			scan3.close();
 			
-			Event details = new Event();
-			fixInput(input, details, decision);
+			deleteEvent(calendar, date[2], input);
 		}
 		
 		if(decision.equalsIgnoreCase("E")) {
 			System.out.println("\nWhich event would you like to edit?(integer)");
-			getEventList();
+			getEvents(calendar, date[2], daySelected);
 			System.out.print(">> ");
 			
 			Scanner scan4 = new Scanner(System.in);
@@ -604,13 +3337,12 @@ public class Event {
 			while(!scan4.hasNextInt()) {
 				scan4.next();
 				System.out.println("\nWhich event would you like to edit?(integer)");
-				getEventList();
+				getEvents(calendar, date[2], daySelected);
 				System.out.print(">> ");
 			}
 			input = scan4.next();
 			
-			Event event = new Event();
-			event.eventDetails(input, decision);
+			editEvent(calendar, date[2],daySelected, input);
 			
 			scan4.close();
 		}
@@ -650,13 +3382,12 @@ public class Event {
 		this.daily = daily;
 	}
 
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
-
 }
 

@@ -8,7 +8,7 @@ public class Task {
     private boolean isComplete = false;
 
     // Creates a task
-    void createTask(String tn, String tc, String tdd)
+    public void createTask(String tn, String tc, String tdd)
     {
         taskName = tn;
         taskContent = tc;
@@ -16,7 +16,7 @@ public class Task {
     }
 
     // Edits attributes of the task
-    void editTask(String taskInfo, char toEdit)
+    public void editTask(String taskInfo, char toEdit)
     {  
         switch (toEdit) {
             case 'N':
@@ -34,45 +34,45 @@ public class Task {
     }
 
     // Sets the task to be complete
-    void markTaskComplete()
+    public void markTaskComplete()
     {
         isComplete = true;
     }
 
     // Sets the task to be incomplete
-    void markTaskIncomplete()
+    public void markTaskIncomplete()
     {
         isComplete = false;
     }
 
     // Getters
-    String getTaskName()
+    public String getTaskName()
     {
         return taskName;
     }
 
-    String getTaskContent()
+    public String getTaskContent()
     {
         return taskContent;
     }
 
-    String getTaskDueDate()
+    public String getTaskDueDate()
     {
         return taskDueDate;
     }
 
-    boolean getIsComplete()
+    public boolean getIsComplete()
     {
         return isComplete;
     }
 
     // Setters
-    void setTaskName(String tn)
+    public void setTaskName(String tn)
     {
         taskName = tn;
     }
 
-    void setTaskContent(String tc)
+    public void setTaskContent(String tc)
     {
         taskContent = tc;
     }

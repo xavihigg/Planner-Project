@@ -1,3 +1,5 @@
+package com.planner.Model;
+
 import java.util.*;
 import java.awt.*;
 import java.awt.TrayIcon.MessageType;
@@ -11,7 +13,7 @@ public class Reminder extends TimerTask {
     private String reminderContent;
 
     // Sets reminder and schedules the notification
-    void setReminder(String rcap, String rcont, String timestr)
+    public void setReminder(String rcap, String rcont, String timestr)
     {  
         reminderCaption = rcap;
         reminderContent = rcont;
@@ -21,7 +23,7 @@ public class Reminder extends TimerTask {
     }
 
     // Deletes the reminder. Returns status
-    boolean deleteReminder()
+    public boolean deleteReminder()
     {
         return this.cancel();
     }

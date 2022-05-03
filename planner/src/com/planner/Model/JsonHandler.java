@@ -1,3 +1,5 @@
+package com.planner.Model;
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import java.io.*;
@@ -13,7 +15,7 @@ Saver here.
  */
 public class JsonHandler
 {
-    private static final String fileLocation = "C:/Users/Frost519/Documents/School/IT327/";
+    private static final String fileLocation = "C:/Users/admin/Documents/School/IT327/";
 
     public static void accountWriteToFile(String myData, String username) {
         File accountFile = new File(fileLocation + username + ".txt");

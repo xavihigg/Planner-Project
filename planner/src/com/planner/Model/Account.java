@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class Account{
     public static ArrayList<Task> tasks = new ArrayList<Task>();
+    public static ArrayList<Category> categories = new ArrayList<Category>();
+    public static Calendar calendar;
     public Profile profile; 
     public String username; 
     public String password;

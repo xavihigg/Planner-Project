@@ -1,3 +1,5 @@
+package com.planner;
+
 import junit.framework.*;
 //William Fenlon
 //white box testing

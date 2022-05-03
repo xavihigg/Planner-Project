@@ -1,3 +1,7 @@
+package com.planner;
+
+import com.planner.Model.Task;
+
 public class TaskTest {
     
     public static void main(String [] args) {

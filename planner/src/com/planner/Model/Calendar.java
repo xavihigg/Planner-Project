@@ -1,17 +1,43 @@
 package com.planner.Model;
 
+import java.util.*;
 import java.time.*;
-import java.util.ArrayList;
 
-public class CreateCalendar {
+public class Calendar {
 	public static ArrayList<ArrayList<Event>> january = new ArrayList<ArrayList<Event>>(31);
+	public static ArrayList<ArrayList<Event>> feburary = new ArrayList<ArrayList<Event>>(28);
+	public static ArrayList<ArrayList<Event>> march = new ArrayList<ArrayList<Event>>(31);
+	public static ArrayList<ArrayList<Event>> april = new ArrayList<ArrayList<Event>>(30);
+	public static ArrayList<ArrayList<Event>> may = new ArrayList<ArrayList<Event>>(31);
+	public static ArrayList<ArrayList<Event>> june = new ArrayList<ArrayList<Event>>(30);
+	public static ArrayList<ArrayList<Event>> july = new ArrayList<ArrayList<Event>>(31);
+	public static ArrayList<ArrayList<Event>> august = new ArrayList<ArrayList<Event>>(31);
+	public static ArrayList<ArrayList<Event>> september = new ArrayList<ArrayList<Event>>(30);
+	public static ArrayList<ArrayList<Event>> october = new ArrayList<ArrayList<Event>>(31);
+	public static ArrayList<ArrayList<Event>> november = new ArrayList<ArrayList<Event>>(30);
+	public static ArrayList<ArrayList<Event>> december = new ArrayList<ArrayList<Event>>(31);
 	
-	public CreateCalendar() {
-		for (int i = 0; i < 31; i++) {
+	public Calendar() {
+		for(int i = 0; i < 31; i++) {
 			this.january.add(new ArrayList<Event>());
+			this.march.add(new ArrayList<Event>());
+			this.may.add(new ArrayList<Event>());
+			this.july.add(new ArrayList<Event>());
+			this.august.add(new ArrayList<Event>());
+			this.october.add(new ArrayList<Event>());
+			this.december.add(new ArrayList<Event>());
+		}
+		for(int i = 0; i < 30; i++) {
+			this.april.add(new ArrayList<Event>());
+			this.june.add(new ArrayList<Event>());
+			this.september.add(new ArrayList<Event>());
+			this.november.add(new ArrayList<Event>());
+		}
+		for(int i = 0; i < 28; i++) {
+			this.feburary.add(new ArrayList<Event>());
 		}
 	}
-
+	
 	private static int Days(String[] date) {
 		int numbOfDays = 0;
 		if(date[1].equals("01")) {
@@ -114,12 +140,38 @@ public class CreateCalendar {
 		return layout;
 	}
 	
-	private static void makeCalendar(String[] layout, String month, String year) {
-		System.out.println("\t\t    " +month +"   " +year);
+	public void makeCalendar() {
+		//object to get the current year and month
+		YearMonth month = YearMonth.now();
+				
+		//turns object into a string and splits the month and year into an array
+		String str = month.toString();
+		String[] date = str.split("-");
+				
+		// object to get the current day
+		LocalDate day = LocalDate.now();
+				
+		//turns object to a string and splits the month and day into an array
+		String str2 = day.toString();
+		String[] date2;
+		//date2 = str2.split("-");
+		date2 = str2.split("-0");
+				
+		//calls the Days() function and gets the total number of days for the month
+		int numbOfDays = Days(date);
+				
+		//calls the Months() function and gets the name of the month
+		String monthName = Months(date);
+				
+		//calls the createDays() function and generates an array of the days of the
+		//month
+		String[] layout = createDays(numbOfDays, date2[2]);
+		
+		System.out.println("\t\t    " +monthName +"   " +date[0]);
 		
 		System.out.print(" Sun\t Mon\t Tue\t Wed\t Thu\t Fri\t Sat\n");
 		
-		if(month.equals("January")) {
+		if(monthName.equals("January")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t\t\t\t\t");
@@ -137,7 +189,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("February")) {
+		else if(monthName.equals("February")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t");
@@ -153,7 +205,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("March")) {
+		else if(monthName.equals("March")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t");
@@ -169,7 +221,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("April")) {
+		else if(monthName.equals("April")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t\t\t\t");
@@ -185,7 +237,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("May")) {
+		else if(monthName.equals("May")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 7)
 					System.out.println("");
@@ -199,7 +251,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("June")) {
+		else if(monthName.equals("June")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t\t");
@@ -215,7 +267,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("July")) {
+		else if(monthName.equals("July")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t\t\t\t");
@@ -233,7 +285,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("August")) {
+		else if(monthName.equals("August")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t");
@@ -249,7 +301,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("September")) {
+		else if(monthName.equals("September")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t\t\t");
@@ -265,7 +317,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("October")) {
+		else if(monthName.equals("October")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t\t\t\t\t");
@@ -283,7 +335,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("November")) {
+		else if(monthName.equals("November")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t");
@@ -299,7 +351,7 @@ public class CreateCalendar {
 			}
 		}
 		
-		else if(month.equals("December")) {
+		else if(monthName.equals("December")) {
 			for(int j = 0; j < layout.length; j++) {
 				if(j == 0)
 					System.out.print("\t\t\t\t");
@@ -314,34 +366,5 @@ public class CreateCalendar {
 				System.out.print(layout[j] + "\t");
 			}
 		}
-	}
-	
-	public void main(String[] args) {
-		//object to get the current year and month
-		YearMonth month = YearMonth.now();
-		
-		//turns object into a string and splits the month and year into an array
-		String str = month.toString();
-		String[] date = str.split("-");
-		
-		// object to get the current day
-		LocalDate day = LocalDate.now();
-		
-		//turns object to a string and splits the month and day into an array
-		String str2 = day.toString();
-		String[] date2 = str2.split("-");
-		
-		//calls the Days() function and gets the total number of days for the month
-		int numbOfDays = Days(date);
-		
-		//calls the Months() function and gets the name of the month
-		String monthName = Months(date);
-		
-		//calls the createDays() function and generates an array of the days of the
-		//month
-		String[] layout = createDays(numbOfDays, date2[2]);
-		
-		//makes the calendar
-		makeCalendar(layout, monthName, date[0]);
 	}
 }

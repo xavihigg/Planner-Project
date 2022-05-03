@@ -291,7 +291,7 @@ public class Category {
 		}
 	}
 	
-	public void main(String[] args) {
+	public void createCategory() {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("\nWould you like to create or delete a category?(C/D): ");
 		String decision = "";

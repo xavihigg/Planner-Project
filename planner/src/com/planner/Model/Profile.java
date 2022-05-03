@@ -1,3 +1,4 @@
+package com.planner.Model;
 
 /**
  * Write a description of class Project here.

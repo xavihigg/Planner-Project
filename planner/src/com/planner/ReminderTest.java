@@ -1,3 +1,7 @@
+package com.planner;
+
+import com.planner.Model.Reminder;
+
 public class ReminderTest {
     public static void main(String [] args) {
         setReminderTest();
