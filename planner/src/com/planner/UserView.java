@@ -119,7 +119,13 @@ public class UserView {
     }
 
     public static void createAccount(){
-        controller.createAccount();
+        String username;
+        String password;
+        System.out.println("Username?");
+        username = scanner.nextLine();
+        System.out.println("Password?");
+        password = scanner.nextLine();
+        controller.createAccount(username,password);
     }
 
     public static void editAccount(){
