@@ -9,7 +9,7 @@ public class Account{
     public Profile profile; 
     public String username; 
     public String password;
-
+    
     public Account(){
         this.getusername();
         this.getPassword();
@@ -49,21 +49,43 @@ public class Account{
         return true;
     }
     
-    public void createProfile(String occupation, String occupationTitle, String location){
-        profile = new Profile();
-        profile.createProfile(occupation, occupationTitle, location);
+    public boolean createProfile(String occupation, String occupationTitle, String location){
+        if(profile == null){
+            profile = new Profile();
+            profile.createProfile(occupation, occupationTitle, location);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public String viewOccupation(){
+        if(profile == null){
+            return "null";
+        }
+        return profile.getOccupation();
+    }
+    
+    public String viewTitle(){
+        if(profile == null){
+            return "null";
+        }
+        return profile.getOccupationTitle();
+    }
+    
+    public String viewLocation(){
+        if(profile == null){
+            return "null";
+        }
+        return profile.getLocation();
     }
     
     public void editProfile(String occupation, String occupationTitle, String location){
         profile.editProfile(occupation, occupationTitle, location);
     }
     
-    public void getProfile(){
-        if(profile != null){
-            profile.getProfile();
-        }
-        else{
-            System.out.println("This account does not have a profile");
-        }
+    public void deleteProfile(){
+        profile = null;
     }
 }
