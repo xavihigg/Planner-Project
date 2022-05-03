@@ -58,9 +58,7 @@ public class UserView {
                     // edit task
                     break;
                 case 4:
-                    System.out.println("What is the name of the task you would like to delete? ");
-                    String deleteChoice = scanner.nextLine();
-                    Controller.deleteTask(deleteChoice);
+                    deleteTask();
                     break;
                 case 5:
                     // create category
@@ -147,7 +145,7 @@ public class UserView {
 
         while (toEdit != 'Z') {
             System.out.println("Would you like to edit the name, content, or due date of this task?");
-            System.out.print("Enter N, C, or D (Z to go back): ");
+            System.out.print("Enter N, C, P, F, or D (Z to go back): ");
             toEdit = scanner.nextLine().toUpperCase().toCharArray()[0];
 
             switch (toEdit) {
@@ -162,6 +160,25 @@ public class UserView {
                 case 'D': System.out.print("Enter a new due date for this task: ");
                     String taskDueDate = scanner.nextLine();
                     controller.editTask(taskDueDate, toEdit);
+                    break;
+                case 'P': System.out.print("Would you like this task to be a priority (y/n): ");
+                    String priorityChoice = scanner.nextLine();
+                    if(priorityChoice.toUpperCase().charAt(0) == 'Y') {
+                        controller.markTaskPriority(priorityChoice);
+                    }
+                    else if (priorityChoice.toUpperCase().charAt(0) == 'N'){
+                        controller.unmarkTaskPriority(priorityChoice);
+                    }
+                    break;
+                case 'F': System.out.print("Would you like this task to be a favorite (y/n): ");
+                    String favoriteChoice = scanner.nextLine();
+                    if(favoriteChoice.toUpperCase().charAt(0) == 'Y') {
+                        controller.markTaskFavorite(favoriteChoice);
+                    }
+                    else if (favoriteChoice.toUpperCase().charAt(0) == 'N'){
+                        controller.unmarkTaskFavorite(favoriteChoice);
+                    }
+
                     break;
                 case 'Z': break;
 
@@ -230,6 +247,19 @@ public class UserView {
         }
         else {
             System.out.println("There is no reminder to delete!");
+        }
+    }
+
+    //////////////////// Lance C Use Cases ////////////////////////////////////////////
+
+    public static void deleteTask() {
+        System.out.println("What is the name of the task you would like to delete? ");
+        String deleteChoice = scanner.nextLine();
+        boolean success = Controller.deleteTask(deleteChoice);
+        if (success) {
+            System.out.println("Task successfully deleted.");
+        } else {
+            System.out.println("Deletion failed or task does not exist.");
         }
     }
 }

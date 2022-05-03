@@ -172,7 +172,7 @@ public class Controller {
         return false;
     }
 
-    public boolean umarkTaskPriority(String taskChoice) {
+    public boolean unmarkTaskPriority(String taskChoice) {
         ArrayList<Task> listOfTasks = Account.getTaskList();
         Iterator<Task> iterator = listOfTasks.iterator();
         Task check = iterator.next();
