@@ -656,7 +656,9 @@ public class Controller {
     // Pass task creation info to Model
     public void createTask(String taskName, String taskContent, String taskDueDate)
     {
+        Task t = new Task()
         t.createTask(taskName, taskContent, taskDueDate);
+        Account.tasks.add(t);
     }
 
     // Pass task editing info to Model
