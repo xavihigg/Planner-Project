@@ -600,20 +600,13 @@ public class Controller {
     }
 
     public static void createAccount(){
-        Scanner scanner = new Scanner(System.in);
-        String username;
-        String password;
-        System.out.println("Username?");
-        username = scanner.nextLine();
-        System.out.println("Password?");
-        password = scanner.nextLine();
         user = new Account(username, password);
         Gson gson = new Gson();
         classSaver.accountWriteToFile(gson.toJson(user),user.getusername());
-        scanner.close();
     }
 
     public static void editAccount(String username, String password){
+        deleteAccount();
         user = new Account(username, password);
         Gson gson = new Gson();
         classSaver.accountWriteToFile(gson.toJson(user),user.getusername());
@@ -654,10 +647,6 @@ public class Controller {
     }
 
     public static void deleteProfile(){
-        user.deleteProfile();
-    }
-
-    public static void deleteProfiel(){
         user.deleteProfile();
     }
 
