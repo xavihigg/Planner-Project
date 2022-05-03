@@ -689,40 +689,41 @@ public class Controller {
 //    }
 
     //////////////////// Will Y Use Cases ////////////////////////////////////////////
-
+    Task t = new Task();
+    Reminder r = new Reminder();
     // Pass task creation info to Model
     public void createTask(String taskName, String taskContent, String taskDueDate)
     {
-        model.createTask(taskName, taskContent, taskDueDate);
+        t.createTask(taskName, taskContent, taskDueDate);
     }
 
     // Pass task editing info to Model
     public void editTask(String taskInfo, char toEdit)
     {
-        model.editTask(taskInfo, toEdit);
+        t.editTask(taskInfo, toEdit);
     }
 
     // Pass completion to Model
     public void markTaskComplete()
     {
-        model.markTaskComplete();
+        t.markTaskComplete();
     }
 
     // Pass incompletion to Model
     public void markTaskIncomplete()
     {
-        model.markTaskIncomplete();
+        t.markTaskIncomplete();
     }
 
     // Pass reminder info to Model
     public void setReminder(String reminderCaption, String reminderContent, String timeString)
     {
-        model.setReminder(reminderCaption, reminderContent, timeString);
+        r.setReminder(reminderCaption, reminderContent, timeString);
     }
 
     // Pass deletion to Model
     public boolean deleteReminder()
     {
-        return model.deleteReminder();
+        return r.deleteReminder();
     }
 }
