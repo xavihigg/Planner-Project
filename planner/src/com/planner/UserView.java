@@ -87,6 +87,10 @@ public class UserView {
             System.out.println(" 10     Delete Profile");
             System.out.println(" 11     Edit Account");            
             System.out.println(" 12     Delete Account");
+            System.out.println(" 13    mergeEvent");
+            System.out.println(" 14    mergeTask");
+            System.out.println(" 15    sortTasks");
+            System.out.println(" 16    generateSchedule()");
             System.out.println(" 0     Logout");
             userChoice = Integer.parseInt(scanner.nextLine());
             switch (userChoice) {
@@ -126,20 +130,20 @@ public class UserView {
                 case 12:
                     deleteAccount();
                     userChoice = 0;
-                case 0:
-                    logout();
-                    break;
-                case 5:
+                case 13:
                     mergeEvent();
                     break;
-                case 6:
+                case 14
                     mergeTask();
                     break;
-                case 7:
+                case 15
                     sortTasks();
                     break;
-                case 8:
+                case 16
                     generateSchedule();
+                    break;
+                case 0:
+                    logout();
                     break;
                 default:
                     System.out.println("not a choice");
