@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import com.planner.Controller;
 import com.planner.Model.Account;
-import com.planner.Model.CreateCalendar;
+import com.planner.Model.Calendar;
 import com.planner.Model.Event;
 import com.planner.Model.Task;
 
@@ -58,7 +58,7 @@ public class UserView {
 
     public static void mainMenu() {
 
-        CreateCalendar cal = new CreateCalendar();
+        Calendar cal = new Calendar();
         Event event1 = new Event("help", "sadf", "asd", "asdf", "asdf");
         Event event2 = new Event("bye", "sadf", "asd", "asdf", "asdf");
         Event event3 = new Event("hello", "sadf", "asd", "asdf", "asdf");
@@ -82,13 +82,13 @@ public class UserView {
         while (userChoice != 0) {
             switch (userChoice) {
                 case 1:
-                    // create calendar
+                    makeCalendar();
                     break;
                 case 2:
-                    // create task
+                    //create task
                     break;
                 case 3:
-                    // create category
+                    createCategory();
                     break;
                 case 4:
                     getWeather();
